@@ -680,6 +680,15 @@ A clean setup repo with smoke tests, logs, plots, and a Week 1 lab note.
 
 # Full 52-week roadmap
 
+Phase-local roadmaps are also split into the corresponding phase folders:
+
+- `phase01_research_engineering/phase01_research_engineering_roadmap.md`
+- `phase02_llms/phase02_llms_roadmap.md`
+- `phase03_efficiency_interpretability/phase03_efficiency_interpretability_roadmap.md`
+- `phase04_vision_multimodal_generation/phase04_vision_multimodal_generation_roadmap.md`
+- `phase05_embodied_rl/phase05_embodied_rl_roadmap.md`
+- `phase06_capstone/phase06_capstone_roadmap.md`
+
 ## Phase 1 - Research engineering and traditional neural networks
 
 ### Week 1 - Environment, Git, PyTorch, HPC bootstrap
@@ -896,17 +905,17 @@ Goal: adapt models under limited GPU memory.
 
 Deliverable: QLoRA run log.
 
-### Week 19 - Preference tuning with DPO
+### Week 19 - Post-training and preference tuning with DPO
 
-Goal: learn preference optimization after SFT.
+Goal: understand post-training as the stage after pretraining and mid-training, then run a small preference-tuning experiment.
 
-- Monday: Learn RLHF conceptually, then DPO.
+- Monday: Learn the post-training stack: instruction SFT, reward modeling conceptually, RLHF/PPO conceptually, and DPO practically.
 - Tuesday: Prepare prompt/chosen/rejected preference dataset.
 - Wednesday: Run DPO on a small model or adapter.
 - Thursday: Compare SFT-only vs SFT+DPO outputs.
-- Friday: Write what preference tuning changes.
+- Friday: Write pretraining vs mid-training vs post-training notes, including what preference tuning changes and what it cannot guarantee.
 
-Deliverable: small DPO experiment.
+Deliverable: post-training mini-report plus small DPO experiment.
 
 ### Week 20 - LLM evaluation
 
@@ -960,13 +969,30 @@ Deliverable: reasoning-method comparison.
 
 Goal: build a small tool-using loop.
 
-- Monday: Read ReAct and tool-use concepts.
+- Monday: Read ReAct, tool-use concepts, and the idea of an agent as a system around model inference rather than a model itself.
 - Tuesday: Build a tool-calling loop with calculator, local search, or Python execution.
-- Wednesday: Add action/observation logging.
+- Wednesday: Add action/observation logging and a minimal short-term memory state.
 - Thursday: Evaluate on 20 tasks requiring tools.
-- Friday: Write agent failure modes.
+- Friday: Write agent failure modes and explain why agents sit above inference, tool use, test-time compute, memory, evaluation, and system design.
 
 Deliverable: small tool-using agent.
+
+Agent concept note:
+
+An agent is not usually a new model class. In this roadmap, treat an agent as a system layer built on top of one or more model inference calls. The model predicts tokens or actions; the agent system decides how to wrap those calls with prompts, tools, retrieval, memory, test-time search, action/observation loops, guardrails, logging, and evaluation. A stronger model can make an agent better, but agent quality also depends on tool design, memory design, task decomposition, control flow, latency, reliability, and failure handling.
+
+Agent stack to learn:
+
+```text
+model weights
+  -> inference engine and decoding
+  -> prompting and tool schemas
+  -> test-time compute / search / reflection
+  -> memory and retrieval
+  -> planner-controller loop
+  -> tools and environment actions
+  -> logging, evals, safety checks, and system design
+```
 
 ---
 
@@ -1244,6 +1270,17 @@ Goal: distinguish VLMs, VLAs, and robot policies.
 
 Deliverable: embodied-AI survey note plus small data demo.
 
+Agentic RL bridge:
+
+The roadmap separates ordinary RL, LLM agents, and embodied policies for clarity, but the modern research frontier increasingly connects them. Treat agentic RL as the study of optimizing interactive behavior over multi-step environments, tools, or tasks. This can include classical RL policies, RLHF-style language-model post-training, RL with verifiable rewards, tool-use rewards, self-play or synthetic task environments, and robot/VLA policies.
+
+Small add-on project if time permits:
+
+- Define a toy agent environment with clear rewards, such as calculator use, web-free document search, code execution, or a gridworld.
+- Compare a prompt-only tool-using agent against a simple reward-shaped or rule-improved agent loop.
+- Track success rate, tool calls, failure modes, and reward hacking.
+- Write what is being optimized: model weights, prompts, policies, tool-selection rules, search budget, memory, or system control flow.
+
 ---
 
 ## Phase 6 - Capstone research project
@@ -1383,10 +1420,13 @@ Use this as the core conceptual reading list. Do not read all of these before co
 - Data cleaning and tokenization
 - Pretraining
 - Continued pretraining / mid-training
-- Supervised fine-tuning
+- Post-training
+- Supervised fine-tuning / instruction tuning
 - LoRA and QLoRA
-- RLHF conceptually
+- Reward modeling conceptually
+- RLHF and PPO conceptually
 - DPO practically
+- RL with verifiable rewards conceptually
 
 ## LLM inference and evaluation
 
@@ -1405,6 +1445,11 @@ Use this as the core conceptual reading list. Do not read all of these before co
 - ReAct
 - Tool use
 - RAG
+- Memory systems
+- Agent control loops
+- Agent evaluations
+
+Agents are not models by default. They are systems built above model inference, tool use, test-time compute, memory and retrieval, environment interaction, and reliability engineering. Study them as system design problems as much as modeling problems.
 
 ## Architecture variants
 
@@ -1443,6 +1488,9 @@ Use this as the core conceptual reading list. Do not read all of these before co
 - Behavior cloning
 - Offline imitation
 - World models / Dreamer-style ideas
+- Agentic RL
+- RL for tool use and multi-step tasks
+- RLHF / RLVR-style optimization conceptually
 - VLM vs VLA
 - RT-2 / OpenVLA-style systems
 - LeRobot-style datasets and tooling
@@ -1460,25 +1508,27 @@ By the end of the roadmap, the student should have:
 5. A T5 or encoder-decoder fine-tuning project.
 6. A continued-pretraining experiment.
 7. LoRA, QLoRA, SFT, and DPO experiments.
-8. An LLM evaluation report.
-9. An inference benchmark.
-10. A RAG system over notes.
-11. Test-time compute comparisons.
-12. A small tool-using agent.
-13. FlashAttention/memory benchmark.
-14. Toy MoE and Mamba-style comparison.
-15. Interpretability notebook.
-16. CNN vs ViT comparison.
-17. CLIP retrieval demo.
-18. SAM/segmentation demo.
-19. Compact VLM evaluation.
-20. Tiny DDPM and diffusion pipeline demo.
-21. GAT graph-learning project.
-22. Audio/speech sampler project.
-23. RL agent.
-24. World-model or behavior-cloning project.
-25. VLA/robotics survey and data demo.
-26. Capstone reproduction report.
+8. A post-training comparison note covering SFT, preference tuning, RLHF/PPO conceptually, and DPO practically.
+9. An LLM evaluation report.
+10. An inference benchmark.
+11. A RAG system over notes.
+12. Test-time compute comparisons.
+13. A small tool-using agent with memory, tool logging, and failure analysis.
+14. FlashAttention/memory benchmark.
+15. Toy MoE and Mamba-style comparison.
+16. Interpretability notebook.
+17. CNN vs ViT comparison.
+18. CLIP retrieval demo.
+19. SAM/segmentation demo.
+20. Compact VLM evaluation.
+21. Tiny DDPM and diffusion pipeline demo.
+22. GAT graph-learning project.
+23. Audio/speech sampler project.
+24. RL agent.
+25. World-model or behavior-cloning project.
+26. Agentic RL bridge note or toy tool-use reward experiment.
+27. VLA/robotics survey and data demo.
+28. Capstone reproduction report.
 
 ---
 
