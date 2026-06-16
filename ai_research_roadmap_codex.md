@@ -1,4 +1,4 @@
-# AI Research Roadmap - Codex-Ready Plan
+# AI Research Roadmap - Continual Codex-Ready Plan
 
 ## Starting point
 
@@ -28,6 +28,7 @@ Main goal:
 - Fine-tune and evaluate real pretrained models
 - Learn how to run experiments cleanly
 - Produce a portfolio of research-style repos and notes
+- Build a continual research practice that can keep extending beyond the first year
 
 Operating principle:
 
@@ -42,6 +43,8 @@ Every topic follows this loop:
 This roadmap starts on Tuesday, June 16, 2026.
 
 Because the start date is a Tuesday, Week 1 is a 4-day bootstrap week from Tuesday to Friday. Week 2 begins on Monday, June 22, 2026, and the normal Monday-Friday rhythm continues after that.
+
+The first 52 weeks are the Year 1 core, not the end of the project. After Week 52, continue with extension tracks, deeper reproductions, safety/evaluation work, systems work, and original research cycles.
 
 ---
 
@@ -104,8 +107,16 @@ project_name/
   model.py
   train.py
   eval.py
+  tests/
   requirements.txt
   results/
+    runs/
+      YYYYMMDD_HHMM_experiment_name/
+        config.yaml
+        metrics.json
+        stdout.log
+        notes.md
+        plots/
     plots/
     logs/
     checkpoints/
@@ -132,6 +143,92 @@ Standard Friday lab-note template:
 
 ## Next steps
 ```
+
+Research operating system:
+
+Every project, from Week 2 onward, should maintain a lightweight research record. This is more important than adding many extra model families.
+
+Before coding:
+
+- State the hypothesis or learning question.
+- Define the baseline.
+- Define the metric before seeing results.
+- Define the train/validation/test split or evaluation set.
+- Record what result would falsify or weaken the idea.
+- Record expected runtime, memory, and hardware.
+
+During experiments:
+
+- Save each meaningful run under `results/runs/YYYYMMDD_HHMM_experiment_name/`.
+- Save `config.yaml`, `metrics.json`, `stdout.log`, `notes.md`, and plots.
+- Use fixed seeds when comparing methods.
+- Run at least 3 repeated runs for important comparisons when compute allows.
+- Track runtime and GPU/CPU memory when relevant.
+- Keep a failure-case table, not only aggregate metrics.
+- Do not trust one lucky run.
+
+After experiments:
+
+- Compare against the baseline.
+- Run at least one ablation for nontrivial claims.
+- Write limitations honestly.
+- Record whether the result supports, weakens, or fails to test the hypothesis.
+- Write the next reproduction idea and one possible extension.
+
+Paper-note template:
+
+```text
+# Paper Title
+
+## Problem
+## Method
+## Key equation or algorithm
+## Strongest empirical result
+## Weakest assumption
+## What I would reproduce
+## What I would extend
+## How this connects to my roadmap
+```
+
+Monthly research checkpoint:
+
+At the end of every 4 weeks, write a short checkpoint note:
+
+- Best experiment result.
+- Most important failure.
+- What was overclaimed or under-tested.
+- One paper-method insight.
+- One systems or reproducibility issue.
+- One safety/evaluation issue.
+- Updated capstone or project ideas.
+- Outside feedback received or requested.
+
+Monthly mini-paper:
+
+Every 4 to 8 weeks, turn one project into a mini-paper:
+
+```text
+# Title
+
+## Abstract
+## Introduction
+## Method
+## Experiments
+## Results
+## Limitations
+## Future work
+## Reproduction instructions
+```
+
+Data, safety, and environment rules:
+
+- Record dataset source, license, preprocessing, and redistribution constraints.
+- Keep large files out of Git.
+- Record where large files, checkpoints, and logs live.
+- Keep Hugging Face tokens, API keys, and gated-model credentials out of the repo.
+- Add prompt-injection, data-leakage, contamination, jailbreak, and misuse-risk notes for LLM, RAG, and agent projects.
+- Add exact CUDA/PyTorch install notes once the HPC environment is known.
+- Add a pinned environment artifact later, such as `requirements.lock.txt`, `uv.lock`, or `conda-lock`.
 
 ---
 
@@ -333,7 +430,7 @@ python scripts/smoke_tests/gpu_smoke_test.py
 ```text
 # AI Research Roadmap
 
-This repo tracks my year-long AI research preparation roadmap.
+This repo tracks my continual AI research preparation roadmap.
 
 Starting background:
 - Completed Machine Learning Specialization
@@ -678,7 +775,9 @@ A clean setup repo with smoke tests, logs, plots, and a Week 1 lab note.
 
 ---
 
-# Full 52-week roadmap
+# Year 1 core roadmap
+
+The Year 1 core is a breadth-building foundation. It should create enough practical skill to read papers, implement small versions of major ideas, run controlled experiments, and choose deeper follow-up tracks. It is intentionally not the whole learning plan.
 
 Phase-local roadmaps are also split into the corresponding phase folders:
 
@@ -723,15 +822,15 @@ Deliverable: CNN vs mini-ResNet comparison.
 
 ### Week 4 - Optimization and experiment discipline
 
-Goal: learn controlled ablations.
+Goal: learn controlled ablations, experiment tracking, and basic testing.
 
 - Monday: Study Adam, SGD momentum, LR schedules, regularization, batch size.
 - Tuesday: Add config-driven training: model size, optimizer, LR, batch size, seed.
-- Wednesday: Run optimizer and learning-rate ablations.
-- Thursday: Create an experiment table with metric, runtime, and memory.
-- Friday: Write a reproducibility note.
+- Wednesday: Add pytest smoke tests: dataset shape, model forward pass, config loading, and a run that finishes under 30 seconds.
+- Thursday: Run optimizer and learning-rate ablations, saving each run under `results/runs/`.
+- Friday: Create an experiment table with metric, runtime, memory, repeated-run variance if available, and a reproducibility note.
 
-Deliverable: reusable experiment template.
+Deliverable: reusable experiment template with config, tracking, tests, and ablation table.
 
 ### Week 5 - RNNs, LSTMs, and sequence modeling
 
@@ -924,10 +1023,10 @@ Goal: evaluate models repeatably.
 - Monday: Learn perplexity, multiple-choice eval, exact match, GSM-style math, win rate, human eval.
 - Tuesday: Install and run lm-evaluation-harness on a tiny model.
 - Wednesday: Create a 20-50 prompt personal evaluation set.
-- Thursday: Evaluate base, SFT, and DPO/QLoRA variants.
-- Friday: Write model/method/score/failure table.
+- Thursday: Evaluate base, SFT, and DPO/QLoRA variants, including failure categories and contamination concerns.
+- Friday: Write model/method/score/failure table and start `capstone_candidates.md` with at least five possible long-term project ideas.
 
-Deliverable: LLM evaluation report.
+Deliverable: LLM evaluation report plus first capstone candidate list.
 
 ### Week 21 - Inference, serving, and KV cache
 
@@ -1359,6 +1458,302 @@ Deliverable: final capstone report and polished repo.
 
 ---
 
+# Continual learning extensions
+
+The roadmap does not stop after Week 52. Treat Weeks 1-52 as Year 1 core. After that, continue with extension seasons. Each extension season should give a serious taste of a research area, not force a full specialization before interests are clear. Default to 4 to 8 weeks per track, then revisit which area deserves deeper work.
+
+The order below is intentionally front-loaded toward the most current and research-heavy frontier areas: post-training, agents, long-context/memory, safety/evals, data/evaluation, and systems. Broader or more domain-specific areas come later as samplers.
+
+Suggested Year 2 timeline:
+
+```text
+Weeks 53-60: Modern post-training, RLHF/RLAIF/RLVR, and agentic RL
+Weeks 61-68: Coding agents, computer-use agents, and AI for software engineering
+Weeks 69-74: Long-context models and memory systems
+Weeks 75-80: AI safety, security, and robust evals
+Weeks 81-86: Data-centric AI and evaluation design
+Weeks 87-92: AI systems, scaling, and ML infrastructure
+Weeks 93-96: Research methods, writing, and reproducibility upgrade
+Weeks 97-100: AI for science sampler
+Weeks 101-104: Causal ML, uncertainty, ranking systems, and extension synthesis
+```
+
+This Year 2 timeline is a default path, not a hard endpoint. It is a tasting menu for important research areas. After it, choose one or two areas for a longer specialization only if the projects made the interest real.
+
+## Extension Track A - Modern Post-Training and Agentic RL
+
+Goal: sample the most important current post-training and interactive-optimization ideas beyond basic SFT and DPO.
+
+Topics:
+
+- RLHF.
+- RLAIF.
+- RL with verifiable rewards / RLVR.
+- Process reward models.
+- Verifier models.
+- Rejection sampling.
+- Preference data quality.
+- PPO conceptually.
+- GRPO-style reasoning optimization conceptually.
+- Tool-use rewards.
+- Agent environments.
+- Reward hacking.
+
+Projects:
+
+- Compare SFT, DPO, and rejection sampling on a small instruction task.
+- Build a tiny verifier for math, code, or structured outputs.
+- Create a toy tool-use environment with explicit rewards.
+- Compare prompt-only agents vs reward-shaped agent loops.
+- Write what is being optimized: model weights, prompts, policies, tool rules, search budget, memory, or control flow.
+
+Deliverables:
+
+- Post-training comparison report.
+- One runnable verifier or toy agentic-RL environment.
+- Clear notes on which parts are conceptual only versus actually implemented.
+
+## Extension Track B - Coding Agents and Computer-Use Agents
+
+Goal: sample AI systems that operate over repositories, tests, tools, browsers, and GUIs.
+
+Topics:
+
+- Code generation.
+- Repository-level agents.
+- Program repair.
+- Test generation.
+- SWE-bench-style evaluation.
+- Tool-using coding loops.
+- Browser agents.
+- Desktop/UI agents.
+- Observation/action loops.
+- Action grounding.
+- Tool failure recovery.
+- Sandboxing and permission boundaries.
+
+Projects:
+
+- Build a tiny coding-agent loop over a small local repo with tests.
+- Evaluate program repair on 10-20 seeded bugs.
+- Build a test-generation assistant and measure whether generated tests catch real bugs.
+- Create a mini SWE-bench-style benchmark from local toy issues.
+- Build a browser-free computer-use simulation with observations, actions, and failure recovery.
+
+Deliverable: coding-agent or computer-use-agent benchmark with success rate, failure taxonomy, and safety constraints.
+
+## Extension Track C - Long-Context Models and Memory Systems
+
+Goal: sample model and system approaches for using information beyond a short prompt. This is a high-priority frontier area because long-context behavior, retrieval, memory, and agent state increasingly determine whether LLM systems work in real research and software tasks.
+
+Topics:
+
+- Long-context evaluation.
+- Attention vs retrieval.
+- Context compression.
+- Memory stores.
+- Lost-in-the-middle behavior.
+- Summarization memory.
+- Episodic vs semantic memory.
+- Retrieval freshness and forgetting.
+- Long-context cost and latency.
+- When to use context, RAG, cache, summary, or external state.
+
+Projects:
+
+- Build a long-context evaluation set over notes, papers, or code.
+- Compare long prompt, RAG, and summary-memory variants.
+- Measure lost-in-the-middle failures.
+- Benchmark cost/latency as context length grows.
+- Write when memory should be context, retrieval, summary, cache, or external state.
+
+Deliverable: long-context and memory comparison report with accuracy, failure cases, cost/latency notes, and design recommendations.
+
+## Extension Track D - AI Safety, Security, and Robustness
+
+Goal: sample frontier model behavior, agent safety, and deployment risk as first-class research topics.
+
+Topics:
+
+- Hallucination evaluation.
+- Prompt injection.
+- Jailbreaks.
+- Data leakage and data exfiltration.
+- Eval gaming.
+- Distribution shift.
+- Misuse risk.
+- Tool and agent sandboxing.
+- RAG security.
+- Model behavior under adversarial prompts.
+- Safety tradeoffs between helpfulness, refusal, and task completion.
+
+Projects:
+
+- Build a small prompt-injection benchmark for a RAG assistant.
+- Compare direct prompting vs tool-using agent behavior under adversarial instructions.
+- Create a jailbreak/refusal/factuality eval table for one small model.
+- Write a sandboxing and threat-model note for agents.
+
+Deliverable: safety/security eval report with attack examples, mitigations, and remaining risks.
+
+## Extension Track E - Data-Centric AI and Evaluation Design
+
+Goal: learn that data and evals often matter more than model novelty.
+
+Topics:
+
+- Dataset quality.
+- Deduplication.
+- Train/validation/test leakage.
+- Benchmark contamination.
+- Labeling noise.
+- Synthetic data.
+- Data filtering.
+- Dataset documentation and licensing.
+- Custom eval set design.
+- Adversarial evals.
+- Confidence intervals and repeated runs.
+- Human vs automated evaluation.
+- Failure taxonomies.
+
+Projects:
+
+- Build a small contaminated-vs-clean evaluation set and measure score inflation.
+- Create a dataset card for one roadmap dataset.
+- Compare one model across clean, noisy, adversarial, and shifted test sets.
+- Write a failure taxonomy for one LLM, vision, or RL project.
+
+Deliverable: data and evaluation report with dataset card, metrics, failure cases, and reproducibility notes.
+
+## Extension Track F - AI Systems, Scaling, and ML Infrastructure
+
+Goal: sample how real training and inference systems fail, scale, recover, and cost money.
+
+Topics:
+
+- `torch.profiler`.
+- GPU memory accounting.
+- Mixed precision.
+- Gradient accumulation.
+- Checkpoint/resume.
+- Dataloader bottlenecks.
+- Failed-job recovery on SLURM.
+- Experiment tracking.
+- Exact CUDA/PyTorch install notes.
+- Lockfiles or pinned environments.
+- Model/data/compute scaling.
+- Chinchilla-style tradeoffs.
+- Inference latency, throughput, batching, and tokens per dollar.
+- Why small experiments may not extrapolate.
+
+Projects:
+
+- Profile one training loop and remove the largest bottleneck.
+- Add checkpoint/resume to one project and test an interrupted run.
+- Compare mixed precision, batch size, and gradient accumulation.
+- Build an HPC failure-recovery checklist.
+- Benchmark inference cost across batch size, context length, and quantization.
+
+Deliverable: systems report with profiler traces, memory table, recovery workflow, and inference-cost benchmark.
+
+## Extension Track G - Research Methods and Scientific Writing
+
+Goal: improve research process and writing using projects already completed.
+
+Core skills:
+
+- Hypothesis-driven experiments.
+- Baseline choice.
+- Ablation design.
+- Error analysis.
+- Limitation writing.
+- Falsification criteria.
+- Reproduction instructions.
+- Monthly mini-paper writing.
+- External critique from a professor, PhD student, classmate, research group, or open-source reviewer.
+
+Deliverables:
+
+- `RESEARCH_PROCESS.md`.
+- `notes/papers/PAPER_NOTE_TEMPLATE.md`.
+- One mini-paper from an existing project.
+- One reviewed project writeup with outside feedback.
+
+## Extension Track H - AI for Science Sampler
+
+Goal: understand how foundation-model techniques transfer into scientific domains.
+
+Topics:
+
+- Protein or genomics models.
+- Molecule generation.
+- Materials discovery.
+- Weather or climate models.
+- Theorem proving.
+- Algorithm discovery.
+- Scientific dataset leakage and evaluation.
+
+Projects:
+
+- Run inference with a small protein, molecule, theorem, or climate model.
+- Reproduce one small scientific ML baseline.
+- Write what changes when the data is scientific rather than internet text/images.
+
+Deliverable: AI-for-science survey note plus one runnable small demo.
+
+## Extension Track I - Causal ML, Uncertainty, and Ranking Systems
+
+Goal: broaden research maturity beyond generative-model trends.
+
+Topics:
+
+- Causality vs correlation.
+- Uncertainty calibration.
+- Bayesian intuition.
+- Conformal prediction.
+- OOD detection.
+- Recommender systems.
+- Retrieval and ranking.
+- Two-tower models.
+- Learning-to-rank.
+- Feedback loops.
+- Bandits.
+
+Projects:
+
+- Add calibration and uncertainty reporting to one classifier.
+- Build a small retrieval + ranking system.
+- Compare offline ranking metrics with simulated user feedback.
+- Write why causality, uncertainty, and feedback loops matter for deployed AI.
+
+Deliverable: uncertainty or ranking project with metrics, calibration/failure plots, and limitations.
+
+## Open Research Cycles
+
+After Year 2, move from syllabus mode into cycles:
+
+1. Choose a paper, benchmark, or open problem.
+2. Reproduce the smallest credible baseline.
+3. Add one controlled modification.
+4. Run ablations and error analysis.
+5. Write a mini-paper.
+6. Ask for external critique.
+7. Decide whether to continue, pivot, or archive.
+
+Keep a living `capstone_candidates.md` starting in Week 20. Each candidate should include:
+
+- Problem.
+- Why it matters.
+- Required data.
+- Required compute.
+- Baseline.
+- Evaluation metric.
+- Main risk.
+- Smallest useful reproduction.
+- Possible extension.
+
+---
+
 # Model-size guidance for one GPU
 
 Use the exact GPU VRAM from Week 1 to adjust model choices.
@@ -1436,6 +1831,20 @@ Use this as the core conceptual reading list. Do not read all of these before co
 - vLLM-style serving
 - lm-evaluation-harness or similar benchmark tools
 - Custom evaluation sets
+- Benchmark contamination
+- Confidence intervals and repeated runs
+- Failure taxonomies
+
+## Data-centric AI and evaluation design
+
+- Dataset quality
+- Deduplication
+- Labeling noise
+- Train/validation/test leakage
+- Synthetic data
+- Data filtering
+- Dataset cards
+- Human vs automated evaluation
 
 ## Test-time compute and agents
 
@@ -1450,6 +1859,41 @@ Use this as the core conceptual reading list. Do not read all of these before co
 - Agent evaluations
 
 Agents are not models by default. They are systems built above model inference, tool use, test-time compute, memory and retrieval, environment interaction, and reliability engineering. Study them as system design problems as much as modeling problems.
+
+## Long-context models and memory systems
+
+- Long-context evaluation
+- Attention vs retrieval
+- Context compression
+- Memory stores
+- Lost-in-the-middle behavior
+- Summarization memory
+- Episodic vs semantic memory
+- Retrieval freshness and forgetting
+
+## Coding agents and computer-use agents
+
+- Repository-level agents
+- Program repair
+- Test generation
+- SWE-bench-style evaluation
+- Browser and GUI agents
+- Observation/action loops
+- Action grounding
+- Tool failure recovery
+- Sandboxing and permissions
+
+## Safety, security, and robustness
+
+- Hallucination evaluation
+- Prompt injection
+- Jailbreaks
+- Data exfiltration
+- Eval gaming
+- RAG security
+- Agent sandboxing
+- Distribution shift
+- Misuse risk
 
 ## Architecture variants
 
@@ -1495,11 +1939,46 @@ Agents are not models by default. They are systems built above model inference, 
 - RT-2 / OpenVLA-style systems
 - LeRobot-style datasets and tooling
 
+## AI systems, scaling, and infrastructure
+
+- `torch.profiler`
+- GPU memory accounting
+- Mixed precision
+- Gradient accumulation
+- Checkpoint/resume
+- Dataloader bottlenecks
+- SLURM recovery
+- Pinned environments
+- Tokens per dollar
+- Scaling laws and compute economics
+- Model/data/compute scaling
+- Chinchilla-style tradeoffs
+
+## AI for science
+
+- Protein and genomics models
+- Molecule generation
+- Materials discovery
+- Weather and climate models
+- Theorem proving
+- Algorithm discovery
+
+## Causal ML, uncertainty, and ranking
+
+- Causality vs correlation
+- Uncertainty calibration
+- Bayesian intuition
+- Conformal prediction
+- OOD detection
+- Two-tower recommenders
+- Learning-to-rank
+- Feedback loops and bandits
+
 ---
 
-# Portfolio target after 52 weeks
+# Year 1 core portfolio target
 
-By the end of the roadmap, the student should have:
+By the end of the Year 1 core, the student should have:
 
 1. A reproducible PyTorch/HPC experiment template.
 2. MLP, CNN, ResNet, RNN/LSTM, autoencoder, VAE, and GAN projects.
@@ -1529,6 +2008,22 @@ By the end of the roadmap, the student should have:
 26. Agentic RL bridge note or toy tool-use reward experiment.
 27. VLA/robotics survey and data demo.
 28. Capstone reproduction report.
+
+# Continual extension portfolio targets
+
+After the Year 1 core, keep adding portfolio artifacts:
+
+1. Modern post-training or RLVR/verifier toy project.
+2. Coding-agent or computer-use-agent benchmark.
+3. Long-context and memory comparison report.
+4. Safety/security eval suite for RAG or agents.
+5. Data-centric AI and evaluation-design report.
+6. AI systems, scaling, profiling, and recovery report.
+7. Research process guide and paper-note template.
+8. Monthly mini-paper archive.
+9. AI-for-science runnable sampler.
+10. Causal uncertainty or ranking-system project.
+11. Second capstone or open-ended research cycle.
 
 ---
 

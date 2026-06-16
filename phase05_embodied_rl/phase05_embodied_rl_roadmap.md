@@ -2,7 +2,16 @@
 
 Parent roadmap: `../ai_research_roadmap_codex.md`
 
+Scope note: this file is the Phase 5 slice of the Year 1 core roadmap. The root roadmap remains the source of truth for continual-learning extensions, especially agentic RL, safety/evals, and broader AI-for-science or ranking samplers.
+
 Phase goal: sample important non-text AI areas, then connect RL, imitation, world models, VLA systems, and agentic RL.
+
+Research-process overlay:
+
+- Define environment, reward, success metric, seed, and evaluation protocol before training policies.
+- Plot reward curves and keep rollout failure cases.
+- Compare random, heuristic, imitation, and learned policies when feasible.
+- Record whether the project optimizes model weights, policies, prompts, tool-selection rules, memory, or system control flow.
 
 ## Weeks
 
@@ -97,3 +106,13 @@ Small add-on project if time permits:
 - Toy world-model or behavior-cloning project.
 - Embodied-AI/VLA survey note plus small data demo.
 - Agentic RL bridge note or toy tool-use reward experiment.
+
+## Continual Extension Connections
+
+Phase 5 sets up several extension tracks:
+
+- Modern post-training and agentic RL: tool-use rewards, verifier rewards, RLVR concepts, agent environments, reward hacking.
+- Coding agents and computer-use agents: observation/action loops, action grounding, tool failure recovery, sandboxing.
+- AI safety, security, and robustness: agent sandboxing, misuse risk, distribution shift, unsafe tool actions.
+- Causal ML, uncertainty, and ranking systems: bandits, feedback loops, offline evaluation, and policy uncertainty.
+- AI for science: graph, audio, world-model, and embodied datasets can become science-domain samplers.

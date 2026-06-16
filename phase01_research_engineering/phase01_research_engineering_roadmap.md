@@ -2,7 +2,17 @@
 
 Parent roadmap: `../ai_research_roadmap_codex.md`
 
+Scope note: this file is the Phase 1 slice of the Year 1 core roadmap. The root roadmap remains the source of truth for continual-learning extensions, research-process rules, and any later pacing changes.
+
 Phase goal: build the local/HPC research workflow, then implement core neural-network families with controlled experiments and short lab notes.
+
+Research-process overlay:
+
+- From Week 2 onward, define the hypothesis, baseline, metric, split, and falsification condition before coding.
+- Save meaningful runs under `results/runs/YYYYMMDD_HHMM_experiment_name/`.
+- Track config, metrics, stdout, notes, plots, runtime, and memory where relevant.
+- Keep failure cases and limitations, not only aggregate scores.
+- Treat Week 4 as the first reusable experiment-template checkpoint.
 
 ## Weeks
 
@@ -40,15 +50,15 @@ Deliverable: CNN vs mini-ResNet comparison.
 
 ### Week 4 - Optimization and experiment discipline
 
-Goal: learn controlled ablations.
+Goal: learn controlled ablations, experiment tracking, and basic testing.
 
 - Monday: Study Adam, SGD momentum, LR schedules, regularization, batch size.
 - Tuesday: Add config-driven training: model size, optimizer, LR, batch size, seed.
-- Wednesday: Run optimizer and learning-rate ablations.
-- Thursday: Create an experiment table with metric, runtime, and memory.
-- Friday: Write a reproducibility note.
+- Wednesday: Add pytest smoke tests: dataset shape, model forward pass, config loading, and a run that finishes under 30 seconds.
+- Thursday: Run optimizer and learning-rate ablations, saving each run under `results/runs/`.
+- Friday: Create an experiment table with metric, runtime, memory, repeated-run variance if available, and a reproducibility note.
 
-Deliverable: reusable experiment template.
+Deliverable: reusable experiment template with config, tracking, tests, and ablation table.
 
 ### Week 5 - RNNs, LSTMs, and sequence modeling
 
@@ -103,3 +113,12 @@ Deliverable: GAN samples and failure analysis.
 - Reproducible PyTorch/HPC experiment template.
 - MLP, CNN, mini-ResNet, RNN/LSTM, autoencoder, VAE, and GAN experiments.
 - Configs, logs, plots, and Friday lab notes for each project.
+- First project-level testing and experiment-tracking pattern.
+
+## Continual Extension Connections
+
+Phase 1 creates the infrastructure that later extension tracks reuse:
+
+- AI systems, scaling, and ML infrastructure: profiling, checkpoint/resume, SLURM recovery, pinned environments.
+- Data-centric AI and evaluation design: split discipline, leakage checks, repeated runs, failure tables.
+- Research methods and scientific writing: hypotheses, baseline comparisons, ablations, limitations, and reproducible reports.

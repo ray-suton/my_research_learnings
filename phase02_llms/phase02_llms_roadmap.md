@@ -2,7 +2,16 @@
 
 Parent roadmap: `../ai_research_roadmap_codex.md`
 
+Scope note: this file is the Phase 2 slice of the Year 1 core roadmap. The root roadmap remains the source of truth for continual-learning extensions, including post-training, coding agents, long-context/memory, safety/evals, and systems tracks.
+
 Phase goal: build the LLM pipeline from tokenization through pretraining, mid-training, post-training, evaluation, inference, RAG, test-time compute, and agents.
+
+Research-process overlay:
+
+- Define eval sets and metrics before comparing model variants.
+- Track tokenization, data source, contamination risk, prompt set, seed, runtime, and memory.
+- For LLM outputs, keep fixed prompts plus a failure-case table.
+- Treat agents as systems above model inference, not as model classes.
 
 ## Weeks
 
@@ -145,10 +154,10 @@ Goal: evaluate models repeatably.
 - Monday: Learn perplexity, multiple-choice eval, exact match, GSM-style math, win rate, human eval.
 - Tuesday: Install and run lm-evaluation-harness on a tiny model.
 - Wednesday: Create a 20-50 prompt personal evaluation set.
-- Thursday: Evaluate base, SFT, and DPO/QLoRA variants.
-- Friday: Write model/method/score/failure table.
+- Thursday: Evaluate base, SFT, and DPO/QLoRA variants, including failure categories and contamination concerns.
+- Friday: Write model/method/score/failure table and start `capstone_candidates.md` with at least five possible long-term project ideas.
 
-Deliverable: LLM evaluation report.
+Deliverable: LLM evaluation report plus first capstone candidate list.
 
 ### Week 21 - Inference, serving, and KV cache
 
@@ -221,3 +230,13 @@ model weights
 - Toy pretraining and continued-pretraining experiments.
 - SFT, LoRA, QLoRA, DPO, and post-training comparison notes.
 - LLM evaluation report, inference benchmark, RAG system, test-time compute comparison, and tool-using agent.
+
+## Continual Extension Connections
+
+Phase 2 feeds directly into the highest-priority extension tracks:
+
+- Modern post-training and agentic RL: RLHF, RLAIF, RLVR, verifiers, rejection sampling, tool-use rewards.
+- Coding agents and computer-use agents: repository agents, SWE-bench-style evals, program repair, browser/UI action loops.
+- Long-context models and memory systems: long-context eval, attention vs retrieval, memory stores, lost-in-the-middle, summarization memory.
+- AI safety, security, and robustness: prompt injection, jailbreaks, hallucination, RAG security, agent sandboxing.
+- Data-centric AI and evaluation design: contamination, custom eval sets, failure taxonomies, human vs automated evals.

@@ -2,7 +2,16 @@
 
 Parent roadmap: `../ai_research_roadmap_codex.md`
 
+Scope note: this file is the Phase 3 slice of the Year 1 core roadmap. The root roadmap remains the source of truth for continual-learning extensions, especially systems/scaling, long-context/memory, and research-process upgrades.
+
 Phase goal: understand modern efficiency techniques, alternative sequence architectures, hybrid model designs, and interpretability workflows.
+
+Research-process overlay:
+
+- Record hardware, runtime, memory, precision, sequence length, and batch size for every systems comparison.
+- Keep profiler traces or summary tables when profiling is the point of the experiment.
+- Separate quality changes from speed/memory changes.
+- For interpretability work, record what the visualization can and cannot prove.
 
 ## Weeks
 
@@ -109,3 +118,12 @@ Deliverable: reproducible LLM mini-pipeline.
 - Toy MoE, Mamba-style, and hybrid architecture experiments.
 - Activation-inspection and sparse-autoencoder interpretability notebooks.
 - Reproducible LLM mini-pipeline.
+
+## Continual Extension Connections
+
+Phase 3 is the main bridge into the systems-heavy extensions:
+
+- AI systems, scaling, and ML infrastructure: `torch.profiler`, GPU memory accounting, mixed precision, checkpoint/resume, dataloader bottlenecks, tokens per dollar.
+- Long-context models and memory systems: attention cost, context-length scaling, retrieval vs attention, cache and memory tradeoffs.
+- Data-centric AI and evaluation design: repeated runs, confidence intervals, and failure categories for efficiency comparisons.
+- Research methods and scientific writing: turn one systems benchmark into a mini-paper with clear limitations.

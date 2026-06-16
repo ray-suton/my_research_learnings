@@ -2,7 +2,16 @@
 
 Parent roadmap: `../ai_research_roadmap_codex.md`
 
+Scope note: this file is the Phase 4 slice of the Year 1 core roadmap. The root roadmap remains the source of truth for continual-learning extensions and cross-cutting evaluation/safety/system standards.
+
 Phase goal: move from classical vision to multimodal models and generative image modeling with both from-scratch and library-based experiments.
+
+Research-process overlay:
+
+- Define task metrics before running demos: accuracy, retrieval recall, VQA score, qualitative rubric, or failure taxonomy.
+- Save representative successes and failures, not only sample images.
+- Track dataset source, license, preprocessing, and whether generated outputs can be shared.
+- For multimodal systems, record prompt format, image resolution, model version, and failure cases.
 
 ## Weeks
 
@@ -109,3 +118,12 @@ Deliverable: diffusion library demo.
 - Segmentation and compact VLM evaluation.
 - Small VLM adaptation experiment.
 - Tiny DDPM and diffusion pipeline demo.
+
+## Continual Extension Connections
+
+Phase 4 connects to several later samplers:
+
+- Data-centric AI and evaluation design: image/text dataset quality, labeling noise, retrieval evaluation, custom VQA eval sets.
+- AI safety, security, and robustness: multimodal hallucination, prompt/image injection, unsafe generation, distribution shift.
+- AI systems, scaling, and infrastructure: inference cost, image resolution, batch size, memory use, pipeline latency.
+- AI for science: vision and generative modeling are useful entry points for microscopy, molecules, materials, and climate imagery.

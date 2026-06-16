@@ -2,7 +2,15 @@
 
 Parent roadmap: `../ai_research_roadmap_codex.md`
 
+Scope note: this file is the Phase 6 slice of the Year 1 core roadmap. The root roadmap remains the source of truth for continual-learning extensions and open research cycles after Week 52.
+
 Phase goal: choose one feasible research direction, reproduce a baseline and main method, run ablations, analyze failures, and package the result into a portfolio-quality report.
+
+Research-process overlay:
+
+- Start `capstone_candidates.md` in Week 20 and keep adding ideas before Phase 6 begins.
+- Each candidate should include problem, importance, data, compute, baseline, metric, main risk, smallest reproduction, and possible extension.
+- The final capstone should include hypothesis, baseline, method, ablations, failure analysis, limitations, and reproduction instructions.
 
 ## Weeks
 
@@ -13,7 +21,7 @@ Goal: choose a feasible small research reproduction.
 - Monday: Review all Friday notes from the year.
 - Tuesday: Choose three candidate papers/projects.
 - Wednesday: Evaluate feasibility with GPU/time.
-- Thursday: Choose one paper and define a small reproduction target.
+- Thursday: Choose one paper and define the smallest credible reproduction target.
 - Friday: Write a capstone proposal.
 
 Deliverable: capstone proposal.
@@ -85,3 +93,17 @@ Deliverable: final capstone repo and report.
 - Ablation report.
 - Failure-analysis report.
 - Final portfolio-ready capstone repo and report.
+
+## Continual Extension Connections
+
+Phase 6 becomes the template for later open research cycles:
+
+- Choose a paper, benchmark, or open problem.
+- Reproduce the smallest credible baseline.
+- Add one controlled modification.
+- Run ablations and error analysis.
+- Write a mini-paper.
+- Ask for external critique.
+- Decide whether to continue, pivot, or archive.
+
+After the Year 1 capstone, use the extension tracks to decide whether the next deep cycle should focus on post-training/agentic RL, coding agents, long-context/memory, safety/evals, systems, data-centric AI, AI for science, or causal/ranking work.
