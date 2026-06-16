@@ -15,7 +15,3 @@ results/checkpoints/
 wandb/
 .DS_Store
 TODO.md
-
-
-git add .
-git commit -m "Initialize AI research roadmap repo"
