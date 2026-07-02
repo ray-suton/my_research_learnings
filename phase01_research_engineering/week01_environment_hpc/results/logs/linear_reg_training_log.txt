@@ -1,0 +1,12 @@
+Week 1 linear regression run
+Final Loss: 0.03953052684664726
+Learned Weight: 3.0077109336853027
+Learned Bias: 2.409120559692383
+Learning Rate: 0.01
+Epochs Run: 2000
+Torch Manual Seed: 0
+Sample Count: 100
+Loss Definition: 1/2 * torch.mean((y_pred - y_true) ** 2)
+Synthetic Data Rule: y = 3x + 2 + noise, where noise = torch.rand(N, 1)
+Loss Plot: phase01_research_engineering/week01_environment_hpc/results/plots/linear_reg_loss.png
+Prediction Plot: phase01_research_engineering/week01_environment_hpc/results/plots/linear_reg_pred_vs_actual.png

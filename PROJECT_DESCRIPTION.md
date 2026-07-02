@@ -1,11 +1,28 @@
 # Project Description
 
-This workspace contains a Codex-ready AI research learning roadmap for building practical AI research skill over a 52-week schedule. The roadmap starts from a student who has completed the Machine Learning and Deep Learning Specializations and is preparing to become a stronger incoming AI student researcher.
+This workspace contains a Codex-ready AI research learning roadmap for building practical AI research skill over a 52-week schedule. It starts from a student who has completed the Machine Learning and Deep Learning Specializations and is preparing to become a stronger incoming AI student researcher.
 
-The current source of truth is `ai_research_roadmap_codex.md`. The main roadmap remains in the repo root, and phase-named roadmap files mirror the relevant phase plan inside each `phaseXX_*` folder. Week 1 is a bootstrap task: create the AI research repo skeleton, environment files, PyTorch smoke tests, SLURM GPU template, Week 1 project folder, and Week 1 lab-note template.
+The roadmap source of truth is `ai_research_roadmap_codex.md`. Phase-specific roadmap files under `phaseXX_*` mirror the relevant sections of the root roadmap.
 
-The repository is a valid Git repo on `master` with two commits: the initial scaffold commit and a follow-up `.gitignore` cleanup commit. The tracked scaffold currently includes `README.md`, `.gitignore`, `requirements.txt`, `environment.yml`, `scripts/smoke_tests/gpu_smoke_test.py`, phase directories, `notes/`, and `results/`. `TODO.md` exists locally but is ignored by `.gitignore`, so it is useful as local status evidence but is not part of the committed project state.
+The current repo-work stage is ready to begin Week 2: MLPs, datasets, and training loops. Week 1 bootstrap is complete from a learning-work perspective:
 
-Tuesday, June 16 setup is mostly complete for the local scaffold: repo initialization, environment files, folder structure, `.gitignore`, and the GPU smoke-test script exist. Later Week 1 items remain unimplemented or unverified: no SLURM template, no autograd test, no linear-regression script, no Week 1 lab note, and no saved Week 1 result artifacts.
+- repository scaffold and environment files exist
+- local PyTorch smoke test exists
+- SLURM GPU smoke-test script exists
+- GPU smoke test passed on an NVIDIA RTX 5000 Ada Generation through SLURM
+- autograd sanity test exists and passes
+- tiny linear-regression training script exists and passes
+- Week 1 training log, loss plot, and prediction-vs-actual plot exist
+- Week 1 project README exists
+- Week 1 note records the verified results and learning notes
 
-Latest local verification: `python3 scripts/smoke_tests/gpu_smoke_test.py` runs successfully on CPU with PyTorch 2.8.0+cu126. CUDA is unavailable in the current environment, so GPU/HPC verification remains unproven.
+The active branch is `main`. The worktree contains local Week 1 and Week 2 preparation files that may still need a human Git review before staging or committing; repository Git history is intentionally read-only for agents.
+
+Data planning for Week 2 is present:
+
+- `DATA_PLAN.md` describes the external data-root policy
+- `data_registry/datasets.yaml` records dataset cards
+- `scripts/data/validate_data_registry.py` validates the registry
+- `scripts/data/prepare_standard_datasets.py` supports standard dataset preparation
+
+Downloaded datasets, processed caches, checkpoints, and large generated artifacts should stay outside Git under `AI_ROADMAP_DATA`.

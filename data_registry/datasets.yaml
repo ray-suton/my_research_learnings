@@ -1,0 +1,273 @@
+schema_version: 1
+data_root_env: AI_ROADMAP_DATA
+default_data_root: "~/data/ai_research_roadmap"
+storage_policy:
+  raw_data: external_data_root
+  processed_data: external_data_root
+  dataset_cards: repository
+  fetch_scripts: repository
+  tiny_test_fixtures: repository_when_needed
+statuses:
+  - ready_without_download
+  - script_supported
+  - planned
+  - tbd
+datasets:
+  synthetic_linear_regression:
+    status: ready_without_download
+    phase: phase01_research_engineering
+    weeks:
+      - week01_environment_hpc
+    purpose: Tiny PyTorch sanity check with generated data.
+    source: Generated locally by the training script.
+    license: not_applicable_generated
+    storage:
+      raw: none
+      processed: none
+      outputs: phase01_research_engineering/week01_environment_hpc/results
+    prepare:
+      command: python phase01_research_engineering/week01_environment_hpc/linear_regression_torch.py
+      script_supported: false
+    split: not_applicable
+    redistribution: safe_to_share_code_only
+    leakage_notes: No external data; use fixed seed for repeatability.
+
+  fashion_mnist:
+    status: script_supported
+    phase: phase01_research_engineering
+    weeks:
+      - week02_mlp_datasets_training_loops
+      - week06_autoencoders
+      - week07_gans
+    purpose: Small image classification and generative-model sanity dataset.
+    source: torchvision.datasets.FashionMNIST
+    license: upstream_terms_review_required
+    storage:
+      raw: raw/torchvision/FashionMNIST
+      processed: processed/fashion_mnist
+      cache: raw/torchvision
+    prepare:
+      command: python scripts/data/prepare_standard_datasets.py --dataset fashion_mnist
+      script_supported: true
+    split: official_train_test
+    redistribution: follow_upstream_terms
+    leakage_notes: Use the official test split only for final evaluation; keep validation split carved from train.
+
+  mnist:
+    status: script_supported
+    phase: phase01_research_engineering
+    weeks:
+      - week02_mlp_datasets_training_loops
+      - week06_autoencoders
+      - week07_gans
+    purpose: Alternate low-friction image sanity dataset.
+    source: torchvision.datasets.MNIST
+    license: upstream_terms_review_required
+    storage:
+      raw: raw/torchvision/MNIST
+      processed: processed/mnist
+      cache: raw/torchvision
+    prepare:
+      command: python scripts/data/prepare_standard_datasets.py --dataset mnist
+      script_supported: true
+    split: official_train_test
+    redistribution: follow_upstream_terms
+    leakage_notes: Use only one of MNIST or Fashion-MNIST for a given comparison unless the experiment explicitly compares datasets.
+
+  cifar10:
+    status: script_supported
+    phase: phase01_research_engineering
+    weeks:
+      - week03_cnns_cifar10
+      - phase04_vision_model_comparisons
+    purpose: Small natural-image benchmark for CNN, ResNet, and ViT comparisons.
+    source: torchvision.datasets.CIFAR10
+    license: upstream_terms_review_required
+    storage:
+      raw: raw/torchvision/cifar-10-batches-py
+      processed: processed/cifar10
+      cache: raw/torchvision
+    prepare:
+      command: python scripts/data/prepare_standard_datasets.py --dataset cifar10
+      script_supported: true
+    split: official_train_test
+    redistribution: follow_upstream_terms
+    leakage_notes: Do not tune repeatedly on the test set; create a validation split from train.
+
+  wikitext2:
+    status: script_supported
+    phase: phase02_llms
+    weeks:
+      - week09_tokenization_text_data
+      - week10_tiny_transformer
+      - week11_mini_gpt
+    purpose: Small public language-modeling corpus for tokenization and tiny Transformer experiments.
+    source: Hugging Face datasets Salesforce/wikitext, config wikitext-2-raw-v1
+    license: cc_by_sa_3_0_reported_for_wikitext_verify_upstream_before_redistribution
+    storage:
+      raw: raw/huggingface/Salesforce/wikitext/wikitext-2-raw-v1
+      processed: processed/wikitext2
+      cache: raw/huggingface
+    prepare:
+      command: python scripts/data/prepare_standard_datasets.py --dataset wikitext2
+      script_supported: true
+    split: upstream_train_validation_test
+    redistribution: follow_upstream_terms
+    leakage_notes: Use for training demos, not as evidence of broad LLM capability.
+
+  ag_news:
+    status: script_supported
+    phase: phase02_llms
+    weeks:
+      - week14_fine_tuning_small_dataset
+      - week18_evaluation_basics
+    purpose: Small text classification dataset for fine-tuning and evaluation tooling.
+    source: Hugging Face datasets ag_news
+    license: upstream_terms_review_required
+    storage:
+      raw: raw/huggingface/ag_news
+      processed: processed/ag_news
+      cache: raw/huggingface
+    prepare:
+      command: python scripts/data/prepare_standard_datasets.py --dataset ag_news
+      script_supported: true
+    split: upstream_train_test
+    redistribution: follow_upstream_terms
+    leakage_notes: Avoid using examples seen during prompt design as final eval examples.
+
+  repo_notes_corpus:
+    status: planned
+    phase: phase02_llms
+    weeks:
+      - week15_domain_adaptation
+      - week24_rag
+    purpose: User-owned notes and paper summaries for domain adaptation and RAG practice.
+    source: notes/ and user-authored paper summaries in this repo.
+    license: user_owned_private_by_default
+    storage:
+      raw: raw/local_notes_snapshot
+      processed: processed/repo_notes_corpus
+      cache: none
+    prepare:
+      command: tbd
+      script_supported: false
+    split: chronological_or_document_level_split
+    redistribution: do_not_redistribute_without_review
+    leakage_notes: Keep retrieval/eval questions separate from documents used while designing prompts.
+
+  tiny_instruction_set:
+    status: planned
+    phase: phase02_llms
+    weeks:
+      - week16_instruction_tuning
+      - week17_preference_optimization
+    purpose: Small hand-authored instruction and preference examples for format practice before using external post-training data.
+    source: user-authored examples
+    license: user_owned
+    storage:
+      raw: raw/instruction_tuning/tiny_handwritten
+      processed: processed/tiny_instruction_set
+      cache: none
+    prepare:
+      command: tbd
+      script_supported: false
+    split: small_manual_train_eval_split
+    redistribution: okay_if_no_private_content
+    leakage_notes: Keep eval prompts fixed before training.
+
+  tiny_vqa_manifest:
+    status: planned
+    phase: phase04_vision_multimodal_generation
+    weeks:
+      - tiny_image_question_answer_dataset
+    purpose: Minimal image-question-answer manifest to learn multimodal data format.
+    source: user-owned or permissively licensed images plus hand-authored questions.
+    license: tbd_per_image
+    storage:
+      raw: raw/vision/tiny_vqa_images
+      processed: processed/tiny_vqa_manifest
+      cache: none
+    prepare:
+      command: tbd
+      script_supported: false
+    split: manual_train_eval_split
+    redistribution: only_if_all_images_allow_redistribution
+    leakage_notes: Eval questions must not be duplicated in training prompts.
+
+  cora:
+    status: planned
+    phase: phase05_embodied_rl
+    weeks:
+      - graph_learning_intro
+    purpose: Small citation graph dataset for node-classification practice.
+    source: PyTorch Geometric Planetoid Cora
+    license: upstream_terms
+    storage:
+      raw: raw/pyg/Cora
+      processed: processed/cora
+      cache: raw/pyg
+    prepare:
+      command: tbd_after_pytorch_geometric_is_added
+      script_supported: false
+    split: standard_planetoid_split_or_documented_custom_split
+    redistribution: follow_upstream_terms
+    leakage_notes: Do not compare against papers unless using the same split.
+
+  speech_commands_tiny:
+    status: planned
+    phase: phase05_embodied_rl
+    weeks:
+      - audio_tooling_intro
+    purpose: Small speech dataset for audio model and dataloader practice.
+    source: Google Speech Commands or a tiny Hugging Face subset.
+    license: upstream_terms_review_required
+    storage:
+      raw: raw/audio/speech_commands
+      processed: processed/speech_commands_tiny
+      cache: raw/audio
+    prepare:
+      command: tbd
+      script_supported: false
+    split: upstream_or_documented_subset_split
+    redistribution: follow_upstream_terms
+    leakage_notes: Speaker overlap can inflate results; split by upstream convention when available.
+
+  robot_demo_dataset:
+    status: planned
+    phase: phase05_embodied_rl
+    weeks:
+      - embodied_ai_data_demo
+    purpose: Inspect robot dataset format and run a small behavior-cloning or visualization demo.
+    source: LeRobot-compatible public dataset or simulator-generated data.
+    license: tbd
+    storage:
+      raw: raw/robotics/demo_dataset
+      processed: processed/robot_demo_dataset
+      cache: raw/robotics
+    prepare:
+      command: tbd
+      script_supported: false
+    split: episode_level_split
+    redistribution: do_not_redistribute_until_license_review
+    leakage_notes: Split by episode/task; avoid frame-level leakage across train and eval.
+
+  capstone_dataset:
+    status: tbd
+    phase: phase06_capstone
+    weeks:
+      - capstone_selection
+      - capstone_baseline
+      - capstone_ablation
+    purpose: Final project dataset selected after earlier phases clarify the capstone direction.
+    source: tbd
+    license: tbd
+    storage:
+      raw: raw/capstone
+      processed: processed/capstone
+      cache: tbd
+    prepare:
+      command: tbd
+      script_supported: false
+    split: fixed_train_validation_test_before_modeling
+    redistribution: tbd
+    leakage_notes: Must include explicit leakage and contamination review before experiments.

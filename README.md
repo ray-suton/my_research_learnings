@@ -12,3 +12,7 @@ Time commitment:
 
 Hardware:
 - One school HPC GPU
+
+Data policy:
+- Keep raw and processed datasets outside Git under `AI_ROADMAP_DATA`.
+- Track dataset sources, licenses, and preparation commands in `DATA_PLAN.md` and `data_registry/datasets.yaml`.
