@@ -36,6 +36,26 @@ Goal: build the first proper supervised-learning experiment.
 
 Deliverable: MLP experiment with reproducible config, logs, checkpoint, and plot.
 
+### After Week 2 MLP - Basic ML mini-project bridge
+
+Goal: revisit the core non-neural ML toolkit with small, fast projects before moving into CNNs and deeper neural-network work.
+
+Keep these projects intentionally light. Use tiny generated toy datasets and implement model logic with PyTorch tensors and standard Python only; do not use scikit-learn or other ML libraries for algorithm implementations. Write one short comparison note instead of turning each model into a large standalone project.
+
+Suggested mini-projects:
+
+- Linear regression: fit a small regression dataset, inspect coefficients, residuals, MSE/MAE, and one regularized variant.
+- Logistic regression: train a binary or multiclass classifier, compare accuracy, log loss, calibration, and the confusion matrix.
+- k-nearest neighbors: compare a few `k` values and show how feature scaling changes results.
+- k-means: cluster a toy or small real dataset, plot clusters, and compare inertia/silhouette across `k`.
+- DBSCAN: show density-based clustering on a non-spherical toy dataset and record where parameter sensitivity appears.
+- EM / Gaussian mixtures: fit a Gaussian mixture model, compare with k-means, and explain soft assignments.
+- SVM: implement a linear SVM with hinge loss and SGD on a small separable classification dataset.
+- Trees: compare decision tree, random forest, and gradient-boosted trees on one tabular dataset, including overfitting and feature-importance notes.
+- Probabilistic models: run at least two of Naive Bayes, Gaussian discriminant analysis, LDA/QDA, Bayesian ridge regression, or a small hidden Markov model-style toy if time allows.
+
+Deliverable: one `basic_ml_mini_projects` folder with small pure-PyTorch scripts, a metrics table, 2-4 plots, and a short comparison note explaining which model assumptions mattered most.
+
 ### Week 3 - CNNs and mini-ResNets
 
 Goal: learn image pipelines and residual connections.
@@ -111,7 +131,7 @@ Deliverable: GAN samples and failure analysis.
 ## Phase Outputs
 
 - Reproducible PyTorch/HPC experiment template.
-- MLP, CNN, mini-ResNet, RNN/LSTM, autoencoder, VAE, and GAN experiments.
+- MLP, basic classical/probabilistic ML, CNN, mini-ResNet, RNN/LSTM, autoencoder, VAE, and GAN experiments.
 - Configs, logs, plots, and Friday lab notes for each project.
 - First project-level testing and experiment-tracking pattern.
 

@@ -1,0 +1,12 @@
+section,dataset,model,setting,n_clusters,inertia,silhouette,noise_points,initial_log_likelihood,final_log_likelihood,mean_max_responsibility,component_weights,iterations
+kmeans_sweep,isotropic_blobs,k-means,k=2,2,1166.931885,0.5863273144,,,,,,6
+kmeans_sweep,isotropic_blobs,k-means,k=3,3,133.9730072,0.8140047789,,,,,,2
+kmeans_sweep,isotropic_blobs,k-means,k=4,4,116.6636353,0.6528868079,,,,,,4
+kmeans_sweep,isotropic_blobs,k-means,k=5,5,96.87998962,0.5057569742,,,,,,8
+dbscan_sensitivity,concentric_rings,DBSCAN,eps=0.08;min_samples=5,0,,,252,,,,,
+dbscan_sensitivity,concentric_rings,DBSCAN,eps=0.20;min_samples=5,2,,,127,,,,,
+dbscan_sensitivity,concentric_rings,DBSCAN,eps=0.30;min_samples=5,2,,,12,,,,,
+dbscan_sensitivity,concentric_rings,DBSCAN,eps=1.40;min_samples=5,1,,,0,,,,,
+shape_comparison,concentric_rings,k-means,k=2,2,600.6895142,0.3263194859,,,,,,9
+gmm_comparison,elongated_blobs,k-means,k=3,3,183.3685913,0.6732710004,,,,,,4
+gmm_comparison,elongated_blobs,diagonal GMM,n_components=3,3,,0.6732710004,,-626.6618652,-626.6369019,0.9952219725,0.334328711|0.3332212269|0.332450062,4

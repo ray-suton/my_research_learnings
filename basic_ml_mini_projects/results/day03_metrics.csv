@@ -1,0 +1,7 @@
+section,dataset,model,setting,train_accuracy,validation_accuracy,test_accuracy,train_validation_gap,test_tn,test_fp,test_fn,test_tp,initial_loss,final_loss,training_steps,feature_split_counts
+margin_check,day01_separable_blobs,linear SVM,epochs=300;lr=0.05;l2=0.01,0.9944444299,1,1,-0.005555570126,36,0,0,24,1,0.05263929814,300,
+tabular_comparison,mixed_signal_tabular,linear SVM,epochs=300;lr=0.05;l2=0.01,0.7638888955,0.71875,0.7916666865,0.04513889551,43,12,8,33,1,0.4852622747,300,
+tabular_comparison,mixed_signal_tabular,decision tree,depth=3;min_split=12;min_leaf=6,0.7986111045,0.7604166865,0.8229166865,0.03819441795,45,10,7,34,,,,4|2|1|0|0|0
+tabular_comparison,mixed_signal_tabular,random forest,trees=25;depth=4;max_features=2,0.850694418,0.78125,0.8333333135,0.06944441795,47,8,8,33,,,,80|53|34|18|35|36
+tabular_comparison,mixed_signal_tabular,logistic gradient boosting,estimators=50;lr=0.20;min_leaf=8,0.7986111045,0.7604166865,0.8229166865,0.03819441795,45,10,7,34,0.6922789216,0.4764088094,50,38|12|0|0|0|0
+tabular_comparison,mixed_signal_tabular,LDA,regularization=0.0001,0.774305582,0.7291666865,0.8125,0.04513889551,43,12,6,35,,,,
