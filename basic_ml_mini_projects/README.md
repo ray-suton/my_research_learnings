@@ -1,73 +1,56 @@
-# Basic ML Mini-Projects
+# Basic ML Learning Workspace
 
-This bridge comes after the Week 2 MLP experiment and before Week 3 CNNs. The goal is to revisit core non-neural machine-learning algorithms by implementing small educational versions in pure PyTorch.
+This directory contains the learner-owned Basic ML rebuild and the archived
+reference version of the earlier completed bridge.
 
-## Current Status
+The previous completed bridge is preserved under
+`archive/completed_reference_2026_07_15/`. Treat it as a read-only answer key:
+attempt each concept and implementation first, then use the archive only for
+comparison or verification.
 
-All three days are implemented and verified. The bridge is complete and ready to hand off into Week 3 CNN work.
+## Current status
 
-Day 1 includes:
+The rebuild is closed for now so the roadmap can move forward to Phase 1 Week
+3 CNN work. The current learner-owned scripts compile and cover the main bridge
+topics:
 
-- linear regression with manual gradient descent
-- ordinary least squares with the normal equation
-- closed-form ridge regression, with no ridge gradient-descent variant
-- binary logistic regression with logits-based binary cross-entropy
-- k-nearest neighbors using `torch.cdist`
-- Gaussian Naive Bayes using log probabilities and variance smoothing
-- MSE, MAE, residual summaries, accuracy, log loss, and confusion matrices
-- seven deterministic standard-library unit tests
-- one CSV metrics table, three plots, and a short comparison note
+- `linear_reg.py`: generated regression data, gradient-descent linear
+  regression, and ordinary least squares
+- `log_reg.py`, `knn.py`, `gnb.py`: basic binary/classical classifiers
+- `kmeans.py`, `dbscan.py`, `gmm.py`: clustering and mixture-model drafts
+- `svm.py`, `dec_tree.py`, `rand_forest.py`, `gbt.py`: margins, trees, and
+  shallow ensemble drafts
 
-Day 2 includes:
+Ridge regression and regularized LDA are intentionally deferred. The archived
+reference still contains complete versions of those ideas if they become useful
+later.
 
-- k-means with deterministic initialization, empty-cluster recovery, inertia, and silhouette scoring
-- an educational `O(n^2)` DBSCAN implementation with core, border, and noise handling
-- a diagonal Gaussian mixture trained with expectation-maximization and soft responsibilities
-- deterministic isotropic blobs, elongated blobs, and concentric-ring datasets
-- a four-setting DBSCAN sensitivity comparison
-- nine deterministic standard-library unit/integration tests
-- one eleven-row CSV metrics table and one six-panel summary plot
+See `BASIC_ML_REBUILD_REPORT.md` for the consolidated status, verification
+evidence, and handoff notes.
 
-Day 3 includes:
+## Learning sequence covered
 
-- a linear SVM trained with deterministic mini-batch SGD and hinge loss
-- a shallow binary CART decision tree with cumulative Gini split scans
-- a random forest with preserved bootstrap samples and per-node feature sampling
-- logistic gradient boosting with loss-decreasing regression-stump updates
-- regularized LDA using pooled covariance and Cholesky solves
-- train/validation/test accuracy, confusion counts, overfitting gaps, losses, and split counts
-- ten deterministic standard-library unit/integration tests
-- one six-row CSV metrics table and the final three-day comparison note
+1. Data foundations: problem definition, generated data, dataset splits,
+   preprocessing, leakage checks, metrics, and reproducibility.
+2. Regression: gradient-descent linear regression and closed-form least
+   squares. Ridge regression is deferred.
+3. Classification: logistic regression, k-nearest neighbors, and Gaussian
+   Naive Bayes.
+4. Unsupervised learning: k-means, DBSCAN, and Gaussian-mixture EM.
+5. Margins and trees: linear SVM, CART, random forest, and gradient boosting.
+6. Discriminant methods: regularized LDA is deferred.
 
-Scope rules:
+## Working agreement
 
-- Use PyTorch tensors and standard Python only for model logic.
-- Do not use scikit-learn or other ML libraries for algorithm implementations.
-- Keep datasets tiny and generated in code.
-- Prefer clarity over library-grade completeness.
-- Save a small metrics table and 2-4 plots across the whole bridge.
+- You write the learning implementation.
+- Codex teaches with one focused question or review step at a time.
+- Use PyTorch tensors and standard Python for algorithm logic.
+- Add tests as each behavioral contract becomes clear.
+- Keep generated artifacts small and reproducible.
+- Do not consult the archived implementation until after making and testing
+  your own attempt.
 
-## Three-Day Plan
+## Next checkpoint
 
-- Day 1: supervised foundations with regression, logistic regression, k-nearest neighbors, and one probabilistic classifier. **Complete.**
-- Day 2: clustering and latent-variable methods with k-means, DBSCAN, and Gaussian mixtures. **Complete.**
-- Day 3: margins, trees, shallow ensembles, LDA, and the final comparison note. **Complete.**
-
-## Run and verify all three days
-
-From the repository root:
-
-```bash
-.venv/bin/python basic_ml_mini_projects/day01_supervised_basic.py
-.venv/bin/python -m unittest basic_ml_mini_projects.test_day01_supervised_basic -v
-.venv/bin/python basic_ml_mini_projects/day02_clustering_em.py
-.venv/bin/python -m unittest basic_ml_mini_projects.test_day02_clustering_em -v
-.venv/bin/python basic_ml_mini_projects/day03_margins_trees.py
-.venv/bin/python -m unittest basic_ml_mini_projects.test_day03_margins_trees -v
-```
-
-The scripts write three CSV metrics tables and four PNG figures under `basic_ml_mini_projects/results/`. See `day01_results.md`, `day02_clustering_em.md`, and `day03_margins_trees_summary.md` for measured results, interpretation, assumptions, and failure cases.
-
-## Deliverable
-
-The final deliverable is complete in `comparison_note.md`. It explains model assumptions, metrics, failure cases, and what these classical methods teach before moving to CNNs.
+Return to Phase 1 Week 3 in
+`../phase01_research_engineering/week03_cnns_cifar10/`.
