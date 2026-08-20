@@ -1,6 +1,6 @@
 schema_version: 1
 data_root_env: AI_ROADMAP_DATA
-default_data_root: "~/data/ai_research_roadmap"
+default_data_root: "/home/rui.gao/data/ai_research_roadmap"
 storage_policy:
   raw_data: external_data_root
   processed_data: external_data_root

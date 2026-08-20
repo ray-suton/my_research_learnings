@@ -21,13 +21,28 @@ The repo should not track:
 
 ## Data Root
 
-Set one external data root before running data scripts:
+Canonical rule for future work:
+
+```text
+/home/rui.gao/data/ai_research_roadmap
+```
+
+All future downloaded datasets, processed data, manifests, and dataset caches
+should live under that root unless a project note explicitly records a
+temporary exception.
+
+Set the matching environment variable before running data scripts:
 
 ```bash
 export AI_ROADMAP_DATA="$HOME/data/ai_research_roadmap"
 ```
 
-On the HPC, prefer scratch or project storage:
+Historical note: Week 2 originally used scratch storage for Fashion-MNIST, but
+that path is not visible in the current session. Do not use scratch as the
+default for new roadmap work.
+
+If a future HPC job needs temporary scratch for speed or quota reasons, record
+the exception in that project's `RUN_LOG.md`:
 
 ```bash
 export AI_ROADMAP_DATA="/scratch/$USER/ai_research_roadmap_data"
@@ -36,7 +51,7 @@ export AI_ROADMAP_DATA="/scratch/$USER/ai_research_roadmap_data"
 If `AI_ROADMAP_DATA` is not set, the data scripts default to:
 
 ```text
-~/data/ai_research_roadmap
+/home/rui.gao/data/ai_research_roadmap
 ```
 
 Do not put the data root inside this Git repo.

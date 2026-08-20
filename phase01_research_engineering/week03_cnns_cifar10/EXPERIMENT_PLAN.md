@@ -9,11 +9,12 @@ optimization or validation accuracy over a simple CNN?
 ## Dataset
 
 - Dataset: CIFAR-10
-- Storage: external data root from `AI_ROADMAP_DATA`
+- Storage: `/home/rui.gao/data/ai_research_roadmap`
 - Registry entry: `data_registry/datasets.yaml`
 - Preparation command:
 
 ```bash
+export AI_ROADMAP_DATA="$HOME/data/ai_research_roadmap"
 python scripts/data/prepare_standard_datasets.py --dataset cifar10
 ```
 
