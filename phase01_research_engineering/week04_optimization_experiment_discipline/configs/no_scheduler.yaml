@@ -1,0 +1,13 @@
+run_name: no_scheduler
+model_name: mini_resnet
+epochs: 50
+batch_size: 64
+seed: 42 
+optimizer: adamw
+weight_decay: 0.001
+learning_rate: 0.001
+scheduler: none
+scheduler_min_lr: null
+data_root: /home/rui.gao/data/ai_research_roadmap
+num_workers: 0
+evaluate_test: false

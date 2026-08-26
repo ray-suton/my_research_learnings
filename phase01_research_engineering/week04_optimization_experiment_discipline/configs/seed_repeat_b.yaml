@@ -1,0 +1,13 @@
+run_name: seed_repeat_b
+model_name: mini_resnet
+epochs: 50
+batch_size: 64
+seed: 123
+optimizer: adamw
+learning_rate: 0.001
+weight_decay: 0.001
+scheduler: cosine
+scheduler_min_lr: 0.00001
+data_root: /home/rui.gao/data/ai_research_roadmap
+num_workers: 0
+evaluate_test: false

@@ -1,0 +1,14 @@
+batch_size: 64
+data_root: /home/rui.gao/data/ai_research_roadmap
+epochs: 50
+evaluate_test: false
+learning_rate: 0.001
+model_name: mini_resnet
+momentum: 0.9
+num_workers: 0
+optimizer: sgd
+run_name: sgd_momentum
+scheduler: cosine
+scheduler_min_lr: 1.0e-05
+seed: 42
+weight_decay: 0.001
