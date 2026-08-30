@@ -1,6 +1,6 @@
 # Configs
 
-This folder will hold Week 5 sequence-model configs.
+This folder holds Week 5 sequence-model configs.
 
 ## Target Fields
 
@@ -21,6 +21,12 @@ seed:
 num_workers:
 generate_num_chars:
 ```
+
+## Recorded Configs
+
+| Config | Purpose | Status |
+| --- | --- | --- |
+| `lstm_readme_tiny.yaml` | First measured README-corpus character LSTM run with fixed seed, sequence length 128, hidden size 64, and bigram baseline comparison. | passed |
 
 ## Rules
 

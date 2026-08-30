@@ -1,15 +1,18 @@
 # Tests
 
-This folder will hold Week 5 smoke tests.
+This folder holds Week 5 smoke tests.
 
-## Planned Tests
+## Implemented Tests
 
-- corpus text loads
-- vocabulary contains expected special tokens or characters
+- manual LSTM block returns inspectable gate and state tensors
+- manual LSTM `c_t` and `h_t` match the textbook update formulas
+- README corpus splitting produces examples
+- vocabulary contains expected special tokens
 - encode/decode round trip works
 - sequence batch shape is `(batch, sequence_length)`
+- encoded examples include `<EOS>` and `<PAD>` where expected
 - model forward pass returns logits with shape `(batch, sequence_length, vocab_size)`
-- tiny train step runs without crashing
+- tiny train step writes a run record without crashing
 
 ## Test Intent
 

@@ -16,3 +16,10 @@ results/runs/YYYYMMDD_HHMM_run_name/
   samples.txt
   notes.md
 ```
+
+## Recorded Runs
+
+| Run Directory | Status | Notes |
+| --- | --- | --- |
+| `results/runs/20260830_170359_lstm_readme_tiny/` | selected | Current README-corpus LSTM run after final documentation updates. |
+| `results/runs/20260830_170204_lstm_readme_tiny/` | superseded | Earlier measured README-corpus run before README documentation updates changed the toy corpus text. |

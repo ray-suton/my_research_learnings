@@ -1,0 +1,19 @@
+batch_size: 8
+corpus_path: README.md
+embedding_dim: 32
+epochs: 35
+generate_num_chars: 160
+hidden_size: 64
+learning_rate: 0.01
+model_name: lstm
+num_layers: 1
+num_workers: 0
+prompts:
+- '#'
+- '-'
+- S
+run_name: lstm_readme_tiny
+seed: 7
+sequence_length: 128
+temperature: 0.8
+val_fraction: 0.2

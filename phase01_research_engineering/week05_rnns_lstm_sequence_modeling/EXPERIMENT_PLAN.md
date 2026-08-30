@@ -6,6 +6,30 @@ Can a small recurrent language model learn local character-level structure from
 a tiny corpus, and how does it compare with a simple non-neural sequence
 baseline?
 
+## Session 1 Design Decision
+
+The first corpus is the Week 5 README:
+
+```text
+phase01_research_engineering/week05_rnns_lstm_sequence_modeling/README.md
+```
+
+Use sentence-level examples with `<EOS>` appended after each real example.
+Use `<PAD>` only for fixed-length batching. Train a character-level LSTM with
+teacher-forced next-token prediction:
+
+```text
+full:       c1 c2 c3 ... cN <EOS>
+input_ids:  c1 c2 c3 ... cN
+target_ids: c2 c3 c4 ... <EOS>
+```
+
+The first implementation should use fixed sequence length `128`, ignore
+`<PAD>` positions in the loss, keep `<EOS>` as a real target, and generate
+until `<EOS>` or a maximum sample length.
+
+Detailed design notes are in `DESIGN.md`.
+
 ## Baseline
 
 Start with a simple character-level baseline:
