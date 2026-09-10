@@ -1,0 +1,1 @@
+/home/rui.gao/anaconda3/bin/python3 phase01_research_engineering/week07_variational_autoencoders/run_sessions.py --output-dir phase01_research_engineering/week07_variational_autoencoders/results/completed_20260908 --checkpoint-dir /tmp/week07_vae_20260908

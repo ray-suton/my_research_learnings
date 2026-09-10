@@ -1,0 +1,257 @@
+{
+  "run_name": "session4_latent16",
+  "status": "completed",
+  "config": {
+    "input_dim": 784,
+    "hidden_dim": 128,
+    "latent_dim": 16,
+    "epochs": 5,
+    "batch_size": 128,
+    "learning_rate": 0.001,
+    "beta": 1.0,
+    "seed": 42,
+    "validation_seed": 123,
+    "device": "cpu",
+    "threads": 1,
+    "data_root": "/home/rui.gao/data/ai_research_roadmap/raw/torchvision",
+    "train_size": 55000,
+    "validation_size": 5000,
+    "test_size": 10000,
+    "validation_sampling": "one posterior draw per image, isolated fixed seed",
+    "loss_reduction": "sum pixels per image, mean images; KL sum latents, mean images",
+    "python_version": "3.13.5",
+    "torch_version": "2.8.0+cu126"
+  },
+  "command": "/home/rui.gao/anaconda3/bin/python3 /home/rui.gao/Desktop/my_research_learning_roadmap/phase01_research_engineering/week07_variational_autoencoders/train.py --run-name session4_latent16 --latent 16 --epochs 5 --batch 128 --hidden 128 --lr 0.001 --beta 1 --seed 42 --validation-seed 123 --device cpu --threads 1 --output-dir /home/rui.gao/Desktop/my_research_learning_roadmap/phase01_research_engineering/week07_variational_autoencoders/results/completed_20260908/session4_latent16 --checkpoint /tmp/week07_vae_20260908/session4_latent16.pt",
+  "history": [
+    {
+      "epoch": 1,
+      "train": {
+        "reconstruction_mse": 0.0509789002050053,
+        "reconstruction_term": 39.96745776072415,
+        "kl": 6.494225149466775,
+        "total": 46.4616829856179,
+        "n_examples": 55000
+      },
+      "validation": {
+        "reconstruction_mse": 0.03393450502753258,
+        "reconstruction_term": 26.60465194158554,
+        "kl": 8.050896125793457,
+        "total": 34.655547802734375,
+        "mean_latent_mse": 0.029344253838062287,
+        "n_examples": 5000,
+        "kl_per_dimension": [
+          0.18747863173484802,
+          0.042595889419317245,
+          0.7515941262245178,
+          0.3173884451389313,
+          0.27576521039009094,
+          0.8890141844749451,
+          0.2958080768585205,
+          0.9299083948135376,
+          0.19855539500713348,
+          0.9463887810707092,
+          0.14199413359165192,
+          0.355584979057312,
+          0.9426299929618835,
+          0.20651914179325104,
+          0.8440309762954712,
+          0.7256399989128113
+        ],
+        "active_latent_dimensions": 16
+      }
+    },
+    {
+      "epoch": 2,
+      "train": {
+        "reconstruction_mse": 0.03086811890900135,
+        "reconstruction_term": 24.20060522465706,
+        "kl": 7.952488733326305,
+        "total": 32.15309397139116,
+        "n_examples": 55000
+      },
+      "validation": {
+        "reconstruction_mse": 0.029456765282154084,
+        "reconstruction_term": 23.0941039812088,
+        "kl": 7.966507482910156,
+        "total": 31.06061150817871,
+        "mean_latent_mse": 0.02523064883649349,
+        "n_examples": 5000,
+        "kl_per_dimension": [
+          0.0834362581372261,
+          0.009024866856634617,
+          0.9102008938789368,
+          0.16148336231708527,
+          0.06966721266508102,
+          1.0904289484024048,
+          0.1347082257270813,
+          1.1716448068618774,
+          0.025670250877738,
+          1.1163606643676758,
+          0.0181246530264616,
+          0.17003703117370605,
+          0.969840407371521,
+          0.08469760417938232,
+          1.0659666061401367,
+          0.8852161169052124
+        ],
+        "active_latent_dimensions": 15
+      }
+    },
+    {
+      "epoch": 3,
+      "train": {
+        "reconstruction_mse": 0.028034905895048923,
+        "reconstruction_term": 21.979366221718355,
+        "kl": 7.968479224881259,
+        "total": 29.947845414040305,
+        "n_examples": 55000
+      },
+      "validation": {
+        "reconstruction_mse": 0.027575490087270737,
+        "reconstruction_term": 21.61918422842026,
+        "kl": 7.864252337646485,
+        "total": 29.483436416625977,
+        "mean_latent_mse": 0.023295783045887947,
+        "n_examples": 5000,
+        "kl_per_dimension": [
+          0.09423742443323135,
+          0.005201665218919516,
+          0.9151169061660767,
+          0.0975215882062912,
+          0.03499891236424446,
+          1.048394799232483,
+          0.06790818274021149,
+          1.31535005569458,
+          0.010608159936964512,
+          1.3479222059249878,
+          0.00763516454026103,
+          0.05039772763848305,
+          0.9074479341506958,
+          0.04138617590069771,
+          1.0366495847702026,
+          0.8834759593009949
+        ],
+        "active_latent_dimensions": 14
+      }
+    },
+    {
+      "epoch": 4,
+      "train": {
+        "reconstruction_mse": 0.02640004605759274,
+        "reconstruction_term": 20.697636109152707,
+        "kl": 8.049218868324973,
+        "total": 28.746854955499824,
+        "n_examples": 55000
+      },
+      "validation": {
+        "reconstruction_mse": 0.026156718382239343,
+        "reconstruction_term": 20.506867211675644,
+        "kl": 7.9747460815429685,
+        "total": 28.481613278198243,
+        "mean_latent_mse": 0.021952390906214713,
+        "n_examples": 5000,
+        "kl_per_dimension": [
+          0.0945654958486557,
+          0.002689225599169731,
+          0.9482741355895996,
+          0.11716977506875992,
+          0.01732514426112175,
+          1.1173291206359863,
+          0.036516956984996796,
+          1.4104145765304565,
+          0.004885876551270485,
+          1.3966526985168457,
+          0.005900062154978514,
+          0.02530716545879841,
+          0.8193272352218628,
+          0.02291533723473549,
+          1.029980182647705,
+          0.9254931807518005
+        ],
+        "active_latent_dimensions": 13
+      }
+    },
+    {
+      "epoch": 5,
+      "train": {
+        "reconstruction_mse": 0.025339066463708877,
+        "reconstruction_term": 19.86582810754776,
+        "kl": 8.149551141773571,
+        "total": 28.015379262473367,
+        "n_examples": 55000
+      },
+      "validation": {
+        "reconstruction_mse": 0.02531843166053295,
+        "reconstruction_term": 19.849650421857834,
+        "kl": 8.129920074462891,
+        "total": 27.979570458984377,
+        "mean_latent_mse": 0.021108087593317032,
+        "n_examples": 5000,
+        "kl_per_dimension": [
+          0.08080144226551056,
+          0.0019282234134152532,
+          0.974686324596405,
+          0.13945874571800232,
+          0.013906143605709076,
+          1.0909465551376343,
+          0.020290210843086243,
+          1.397052526473999,
+          0.00386015884578228,
+          1.5078352689743042,
+          0.0041391681879758835,
+          0.013952021487057209,
+          0.8370752930641174,
+          0.014084490947425365,
+          1.1192891597747803,
+          0.9106147289276123
+        ],
+        "active_latent_dimensions": 13
+      }
+    }
+  ],
+  "final_validation": {
+    "reconstruction_mse": 0.02531843166053295,
+    "reconstruction_term": 19.849650421857834,
+    "kl": 8.129920074462891,
+    "total": 27.979570458984377,
+    "mean_latent_mse": 0.021108087593317032,
+    "n_examples": 5000,
+    "kl_per_dimension": [
+      0.08080144226551056,
+      0.0019282234134152532,
+      0.974686324596405,
+      0.13945874571800232,
+      0.013906143605709076,
+      1.0909465551376343,
+      0.020290210843086243,
+      1.397052526473999,
+      0.00386015884578228,
+      1.5078352689743042,
+      0.0041391681879758835,
+      0.013952021487057209,
+      0.8370752930641174,
+      0.014084490947425365,
+      1.1192891597747803,
+      0.9106147289276123
+    ],
+    "active_latent_dimensions": 13
+  },
+  "test_evaluated": false,
+  "test": null,
+  "runtime_seconds": 16.462297641002806,
+  "runtime_scope": "training and validation only; figures/checkpoint excluded",
+  "parameter_count": 207920,
+  "checkpoint": "/tmp/week07_vae_20260908/session4_latent16.pt",
+  "artifacts": {
+    "reconstructions.png": "/home/rui.gao/Desktop/my_research_learning_roadmap/phase01_research_engineering/week07_variational_autoencoders/results/completed_20260908/session4_latent16/reconstructions.png",
+    "prior_samples.png": "/home/rui.gao/Desktop/my_research_learning_roadmap/phase01_research_engineering/week07_variational_autoencoders/results/completed_20260908/session4_latent16/prior_samples.png",
+    "loss_curves.png": "/home/rui.gao/Desktop/my_research_learning_roadmap/phase01_research_engineering/week07_variational_autoencoders/results/completed_20260908/session4_latent16/loss_curves.png"
+  },
+  "source_sha256": {
+    "model.py": "43ccafc0fe0a9031c0c2f749129eb0432b38f07993cc5ed3eadc229276ea347a",
+    "loader.py": "de705360636ca6561dd72dcc6232c1446481adb5d2e22398c5b23825af11c2de",
+    "loss_helper.py": "75613119548584043ab0fda0833a478ceb9d4fd18e47a68af2d27caae072cc35",
+    "train.py": "b71908a2d599cc65889a5ed2d29e4eaa5a6c1dac296737f002151c7cb5b025bf"
+  }
+}

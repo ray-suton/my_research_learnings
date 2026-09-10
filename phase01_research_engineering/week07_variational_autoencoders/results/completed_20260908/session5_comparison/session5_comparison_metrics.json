@@ -1,0 +1,200 @@
+{
+  "run_name": "session5_matched_autoencoder_comparison",
+  "command": "/home/rui.gao/anaconda3/bin/python3 /home/rui.gao/Desktop/my_research_learning_roadmap/phase01_research_engineering/week07_variational_autoencoders/compare_autoencoder.py --vae-checkpoint /tmp/week07_vae_20260908/session4_latent8.pt --output-dir /home/rui.gao/Desktop/my_research_learning_roadmap/phase01_research_engineering/week07_variational_autoencoders/results/completed_20260908/session5_comparison --epochs 5 --batch 128 --seed 42 --lr 0.001 --device cpu --threads 1",
+  "config": {
+    "epochs": 5,
+    "batch_size": 128,
+    "seed": 42,
+    "learning_rate": 0.001,
+    "input_dim": 784,
+    "hidden_dim": 128,
+    "latent_dim": 8,
+    "optimizer": "Adam",
+    "ae_noise_std": 0,
+    "device": "cpu",
+    "threads": 1,
+    "evaluation_seed": 123,
+    "figure_seed": 2026
+  },
+  "vae_checkpoint": "/tmp/week07_vae_20260908/session4_latent8.pt",
+  "vae_checkpoint_sha256": "9327e32555581e791cfa1d2163b792190d382d075e31dd6c0b68a5f661a0a7cf",
+  "vae_run_name": "session4_latent8",
+  "vae_config": {
+    "input_dim": 784,
+    "hidden_dim": 128,
+    "latent_dim": 8,
+    "epochs": 5,
+    "batch_size": 128,
+    "learning_rate": 0.001,
+    "beta": 1.0,
+    "seed": 42,
+    "validation_seed": 123,
+    "device": "cpu",
+    "threads": 1,
+    "data_root": "/home/rui.gao/data/ai_research_roadmap/raw/torchvision",
+    "train_size": 55000,
+    "validation_size": 5000,
+    "test_size": 10000,
+    "validation_sampling": "one posterior draw per image, isolated fixed seed",
+    "loss_reduction": "sum pixels per image, mean images; KL sum latents, mean images",
+    "python_version": "3.13.5",
+    "torch_version": "2.8.0+cu126"
+  },
+  "vae_epoch": 5,
+  "selection_protocol": "VAE checkpoint selected using validation only before this command; fixed final-epoch AE; no test tuning",
+  "data": {
+    "dataset": "Fashion-MNIST",
+    "cache": "/home/rui.gao/data/ai_research_roadmap/raw/torchvision",
+    "download": false,
+    "train_examples": 55000,
+    "validation_examples": 5000,
+    "test_examples": 10000,
+    "split": "torch random_split of official training set, seeded by config.seed"
+  },
+  "metric_definitions": {
+    "ae.reconstruction_mse": "Per-pixel squared error, weighted by example count across batches",
+    "vae.reconstruction_mse": "Per-pixel squared error from one posterior sample per image, with fixed evaluation RNG seed",
+    "vae.mean_latent_mse": "Per-pixel squared error from decode(mu); this is not the expected decoded image",
+    "vae.reconstruction_term": "784 times posterior-sampled per-pixel MSE",
+    "vae.kl": "KL to N(0,I), summed over latent dimensions and averaged across examples",
+    "vae.total": "Posterior-sampled reconstruction term plus beta times KL; not comparable with AE MSE directly"
+  },
+  "comparison_limits": [
+    "This is a fresh matched AE run, not a replay of the historical Week 6 metrics.",
+    "Historical Week 6 evaluation averaged batch means; this comparison weights by example count, including partial batches.",
+    "Both models share data split, dimensions, epoch budget, batch size, learning rate, and seed; objectives and parameter counts differ.",
+    "VAE sampled and mean-code reconstruction answer different questions and are reported separately.",
+    "The AE has no trained prior: its random-normal latent probes are illustrative, not valid prior samples.",
+    "One seed and a short training budget do not establish general superiority or quantitative generation quality."
+  ],
+  "parameter_counts": {
+    "ae": 203800,
+    "vae": 204832
+  },
+  "ae_history": [
+    {
+      "epoch": 1,
+      "train": {
+        "reconstruction_mse": 0.04744225749752738,
+        "n_examples": 55000
+      },
+      "validation": {
+        "reconstruction_mse": 0.02834786286652088,
+        "n_examples": 5000
+      }
+    },
+    {
+      "epoch": 2,
+      "train": {
+        "reconstruction_mse": 0.02554866675707427,
+        "n_examples": 55000
+      },
+      "validation": {
+        "reconstruction_mse": 0.024564259946346284,
+        "n_examples": 5000
+      }
+    },
+    {
+      "epoch": 3,
+      "train": {
+        "reconstruction_mse": 0.023165013135021385,
+        "n_examples": 55000
+      },
+      "validation": {
+        "reconstruction_mse": 0.022380227157473565,
+        "n_examples": 5000
+      }
+    },
+    {
+      "epoch": 4,
+      "train": {
+        "reconstruction_mse": 0.02157972960417921,
+        "n_examples": 55000
+      },
+      "validation": {
+        "reconstruction_mse": 0.021431718645989896,
+        "n_examples": 5000
+      }
+    },
+    {
+      "epoch": 5,
+      "train": {
+        "reconstruction_mse": 0.020794654433022846,
+        "n_examples": 55000
+      },
+      "validation": {
+        "reconstruction_mse": 0.02079279722571373,
+        "n_examples": 5000
+      }
+    }
+  ],
+  "validation": {
+    "ae": {
+      "reconstruction_mse": 0.02079279722571373,
+      "n_examples": 5000
+    },
+    "vae": {
+      "reconstruction_mse": 0.02434710986316204,
+      "reconstruction_term": 19.08813413271904,
+      "kl": 7.984677320861817,
+      "total": 27.072811529541017,
+      "mean_latent_mse": 0.020744186440110206,
+      "n_examples": 5000,
+      "kl_per_dimension": [
+        0.5629507899284363,
+        0.1976582407951355,
+        1.8986225128173828,
+        1.586121916770935,
+        0.7478895783424377,
+        0.5775646567344666,
+        1.0966098308563232,
+        1.3172601461410522
+      ],
+      "active_latent_dimensions": 8
+    }
+  },
+  "test": {
+    "ae": {
+      "reconstruction_mse": 0.020631578522920607,
+      "n_examples": 10000
+    },
+    "vae": {
+      "reconstruction_mse": 0.024081300684809685,
+      "reconstruction_term": 18.879739736890794,
+      "kl": 7.912744747924805,
+      "total": 26.79248436279297,
+      "mean_latent_mse": 0.02051398555934429,
+      "n_examples": 10000,
+      "kl_per_dimension": [
+        0.5654800534248352,
+        0.1825495958328247,
+        1.8740402460098267,
+        1.5927412509918213,
+        0.7384286522865295,
+        0.5523727536201477,
+        1.103639006614685,
+        1.303492784500122
+      ],
+      "active_latent_dimensions": 8
+    }
+  },
+  "figures": {
+    "reconstructions": "/home/rui.gao/Desktop/my_research_learning_roadmap/phase01_research_engineering/week07_variational_autoencoders/results/completed_20260908/session5_comparison/session5_reconstruction_comparison.png",
+    "random_latents": "/home/rui.gao/Desktop/my_research_learning_roadmap/phase01_research_engineering/week07_variational_autoencoders/results/completed_20260908/session5_comparison/session5_random_latent_comparison.png"
+  },
+  "runtime_seconds": 15.461,
+  "versions": {
+    "python": "3.13.5",
+    "torch": "2.8.0+cu126",
+    "torchvision": "0.23.0+cu126",
+    "matplotlib": "3.10.0"
+  },
+  "source_sha256": {
+    "/home/rui.gao/Desktop/my_research_learning_roadmap/phase01_research_engineering/week07_variational_autoencoders/compare_autoencoder.py": "cf2228b910c73a67d2f0bebb4d98827d07c96335075f84b3a1fea009febaeb09",
+    "/home/rui.gao/Desktop/my_research_learning_roadmap/phase01_research_engineering/week07_variational_autoencoders/train.py": "b71908a2d599cc65889a5ed2d29e4eaa5a6c1dac296737f002151c7cb5b025bf",
+    "/home/rui.gao/Desktop/my_research_learning_roadmap/phase01_research_engineering/week07_variational_autoencoders/model.py": "43ccafc0fe0a9031c0c2f749129eb0432b38f07993cc5ed3eadc229276ea347a",
+    "/home/rui.gao/Desktop/my_research_learning_roadmap/phase01_research_engineering/week07_variational_autoencoders/loss_helper.py": "75613119548584043ab0fda0833a478ceb9d4fd18e47a68af2d27caae072cc35",
+    "/home/rui.gao/Desktop/my_research_learning_roadmap/phase01_research_engineering/week07_variational_autoencoders/loader.py": "de705360636ca6561dd72dcc6232c1446481adb5d2e22398c5b23825af11c2de",
+    "/home/rui.gao/Desktop/my_research_learning_roadmap/phase01_research_engineering/week06_autoencoders_representation_learning/model.py": "5fb96db7bd3a5290a8f1dc37aa42c8df7a3101f674e65630b0e0a904b1f06b20"
+  }
+}

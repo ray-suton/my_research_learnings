@@ -1,0 +1,73 @@
+{
+  "status": "completed",
+  "latent_sizes": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "fixed_settings": {
+    "epochs": 5,
+    "batch_size": 128,
+    "learning_rate": 0.001,
+    "hidden_dim": 128,
+    "beta": 1.0,
+    "seed": 42,
+    "validation_seed": 123,
+    "device": "cpu",
+    "threads": 1
+  },
+  "active_dimension_definition": "mean KL contribution > 0.01 nats on validation",
+  "test_used_for_selection": false,
+  "limitations": "One seed; final-epoch models; no significance or generation metric",
+  "runs": [
+    {
+      "run_name": "session4_latent8",
+      "latent_dim": 8,
+      "validation_mse": 0.02434710986018181,
+      "mean_latent_mse": 0.020744186440110206,
+      "kl": 7.984677321624756,
+      "total": 27.072811529541017,
+      "active_dimensions": 8,
+      "parameters": 204832,
+      "runtime_seconds": 16.336577452006168,
+      "checkpoint": "/tmp/week07_vae_20260908/session4_latent8.pt"
+    },
+    {
+      "run_name": "session4_latent16",
+      "latent_dim": 16,
+      "validation_mse": 0.02531843166053295,
+      "mean_latent_mse": 0.021108087593317032,
+      "kl": 8.129920074462891,
+      "total": 27.979570458984377,
+      "active_dimensions": 13,
+      "parameters": 207920,
+      "runtime_seconds": 16.462297641002806,
+      "checkpoint": "/tmp/week07_vae_20260908/session4_latent16.pt"
+    },
+    {
+      "run_name": "session3_latent32",
+      "latent_dim": 32,
+      "validation_mse": 0.025293920964002608,
+      "mean_latent_mse": 0.021970421209931375,
+      "kl": 7.970769270324707,
+      "total": 27.80120340576172,
+      "active_dimensions": 9,
+      "parameters": 214096,
+      "runtime_seconds": 16.806373060004262,
+      "checkpoint": "/tmp/week07_vae_20260908/session3_latent32.pt"
+    },
+    {
+      "run_name": "session4_latent64",
+      "latent_dim": 64,
+      "validation_mse": 0.026851018932461737,
+      "mean_latent_mse": 0.023315508177876473,
+      "kl": 7.694734900665283,
+      "total": 28.745933450317384,
+      "active_dimensions": 22,
+      "parameters": 226448,
+      "runtime_seconds": 16.739544447002118,
+      "checkpoint": "/tmp/week07_vae_20260908/session4_latent64.pt"
+    }
+  ]
+}

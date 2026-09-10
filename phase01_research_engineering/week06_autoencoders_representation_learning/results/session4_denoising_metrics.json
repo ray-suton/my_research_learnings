@@ -1,0 +1,47 @@
+{
+  "epochs": 5,
+  "learning_rate": 0.001,
+  "noise_std": 0.3,
+  "samples": 8,
+  "device": "cpu",
+  "history": [
+    {
+      "epoch": 0,
+      "train_loss": 0.04307942214140365,
+      "val_loss": 0.02595757655799389
+    },
+    {
+      "epoch": 1,
+      "train_loss": 0.023573380253862502,
+      "val_loss": 0.021973032830283047
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.02089024154079515,
+      "val_loss": 0.020064037339761854
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.019370646142335825,
+      "val_loss": 0.018966477480717003
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.018452214848163517,
+      "val_loss": 0.018124253791756927
+    }
+  ],
+  "final_train_loss": 0.018452214848163517,
+  "final_val_loss": 0.018124253791756927,
+  "test_loss": 0.01813134808046154,
+  "average_image_val_loss": 0.08802922796458006,
+  "noisy_input_val_loss": 0.052526631765067576,
+  "saved_reconstructions": "/home/rui.gao/Desktop/my_research_learning_roadmap/phase01_research_engineering/week06_autoencoders_representation_learning/results/session4_denoising_reconstructions.png",
+  "runtime_seconds": 21.559,
+  "run_id": "session4_denoising_autoencoder",
+  "input_dim": 784,
+  "hidden_dim": 128,
+  "latent_dim": 32,
+  "batch_size": 128,
+  "seed": 42
+}

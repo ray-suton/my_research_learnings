@@ -1,0 +1,21 @@
+{
+  "input_dim": 784,
+  "hidden_dim": 128,
+  "latent_dim": 64,
+  "epochs": 5,
+  "batch_size": 128,
+  "learning_rate": 0.001,
+  "beta": 1.0,
+  "seed": 42,
+  "validation_seed": 123,
+  "device": "cpu",
+  "threads": 1,
+  "data_root": "/home/rui.gao/data/ai_research_roadmap/raw/torchvision",
+  "train_size": 55000,
+  "validation_size": 5000,
+  "test_size": 10000,
+  "validation_sampling": "one posterior draw per image, isolated fixed seed",
+  "loss_reduction": "sum pixels per image, mean images; KL sum latents, mean images",
+  "python_version": "3.13.5",
+  "torch_version": "2.8.0+cu126"
+}
