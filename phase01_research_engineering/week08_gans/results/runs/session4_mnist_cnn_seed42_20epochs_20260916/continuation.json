@@ -1,0 +1,27 @@
+{
+  "checkpoint": {
+    "epoch": 12,
+    "path": "/home/rui.gao/data/ai_research_roadmap/checkpoints/week08_gans/session4_mnist_cnn_seed42_20epochs_20260916/epoch_12.pt",
+    "sha256": "a0eaac20d8004e7273755578e717189dea8f6580ff0c354e2ffd88fdf3ccac8e"
+  },
+  "command": [
+    "/home/rui.gao/anaconda3/bin/python3",
+    "phase01_research_engineering/week08_gans/results/runs/session4_mnist_cnn_seed42_20epochs_20260916/continue_run.py"
+  ],
+  "completed_at": "2026-09-16T16:14:15.741214+00:00",
+  "continuation_seconds": 436.5420568679983,
+  "original_config_preserved": true,
+  "reason": "Initial process terminated with exit 143; no training process remained",
+  "restored": [
+    "generator",
+    "discriminator",
+    "g_optimizer",
+    "d_optimizer",
+    "torch_rng_state",
+    "loader_rng_state"
+  ],
+  "restored_epoch": 12,
+  "script_sha256": "ac0bfb8812ab4d6abe0f124d2e9186afd376897a21b08d08a5fc8f013ded2d61",
+  "started_at": "2026-09-16T16:06:59.197000+00:00",
+  "timing_note": "Sum of epoch training_seconds covers completed epochs only; wall elapsed includes interruption/recovery and any lost partial epoch"
+}

@@ -1,0 +1,79 @@
+Fashion-MNIST CNN extension preflight — 2026-09-17
+
+Session 5 documentation completed and validated before measured execution.
+Scope confirmed by learner: CNN only, twenty epochs.
+
+Command:
+PYTHONDONTWRITEBYTECODE=1 MPLCONFIGDIR=/tmp/week08-fashion-tests-20260917 OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 python3 -m unittest discover -s phase01_research_engineering/week08_gans/tests -p 'test_*.py' -v
+
+test_default_uses_cached_mnist_with_original_contract (test_dataset_selection.DatasetSelectionChecks.test_default_uses_cached_mnist_with_original_contract) ... ok
+test_download_is_never_enabled_for_selected_dataset (test_dataset_selection.DatasetSelectionChecks.test_download_is_never_enabled_for_selected_dataset) ... ok
+test_fashion_mnist_selects_cached_class_and_preserves_split_contract (test_dataset_selection.DatasetSelectionChecks.test_fashion_mnist_selects_cached_class_and_preserves_split_contract) ... ok
+test_invalid_dataset_rejected_before_any_data_access (test_dataset_selection.DatasetSelectionChecks.test_invalid_dataset_rejected_before_any_data_access) ... ok
+test_split_and_loader_order_are_deterministic_without_global_rng_change (test_dataset_selection.DatasetSelectionChecks.test_split_and_loader_order_are_deterministic_without_global_rng_change) ... ok
+test_dataset_cli_and_execution_controls (test_run_control.RunControlChecks.test_dataset_cli_and_execution_controls) ... ok
+test_pause_resume_preserves_config_and_defers_finalization (test_run_control.RunControlChecks.test_pause_resume_preserves_config_and_defers_finalization) ... ok
+test_restored_epoch_matches_uninterrupted_for_both_architectures (test_run_control.RunControlChecks.test_restored_epoch_matches_uninterrupted_for_both_architectures) ... ok
+test_resume_rejects_inconsistent_or_changed_provenance (test_run_control.RunControlChecks.test_resume_rejects_inconsistent_or_changed_provenance) ... ok
+test_default_preserves_mlp_classes_and_initialization (test_session3_baseline.ArchitectureSelectionChecks.test_default_preserves_mlp_classes_and_initialization) ... ok
+test_explicit_cnn_selection_honors_noise_width (test_session3_baseline.ArchitectureSelectionChecks.test_explicit_cnn_selection_honors_noise_width) ... ok
+test_unknown_architecture_is_rejected (test_session3_baseline.ArchitectureSelectionChecks.test_unknown_architecture_is_rejected) ... ok
+test_actual_epoch_includes_single_image_final_batch (test_session3_baseline.BaselineChecks.test_actual_epoch_includes_single_image_final_batch) ... ok
+test_bce_numerical_contract (test_session3_baseline.BaselineChecks.test_bce_numerical_contract) ... ok
+test_cached_mnist_splits_normalization_and_independent_rng (test_session3_baseline.BaselineChecks.test_cached_mnist_splits_normalization_and_independent_rng) ... ok
+test_discriminator_gradient_flags_restore_after_generator_failure (test_session3_baseline.BaselineChecks.test_discriminator_gradient_flags_restore_after_generator_failure) ... ok
+test_empty_epoch_is_rejected (test_session3_baseline.BaselineChecks.test_empty_epoch_is_rejected) ... ok
+test_epoch_weights_short_batch_and_ignores_digit_labels (test_session3_baseline.BaselineChecks.test_epoch_weights_short_batch_and_ignores_digit_labels) ... ok
+test_monitoring_preserves_parameters_mode_and_training_rng (test_session3_baseline.BaselineChecks.test_monitoring_preserves_parameters_mode_and_training_rng) ... ok
+test_monitoring_restores_mode_on_error (test_session3_baseline.BaselineChecks.test_monitoring_restores_mode_on_error) ... ok
+test_optimizer_boundaries_targets_and_reported_losses (test_session3_baseline.BaselineChecks.test_optimizer_boundaries_targets_and_reported_losses) ... ok
+test_shapes_and_ranges_for_single_and_regular_batches (test_session3_baseline.BaselineChecks.test_shapes_and_ranges_for_single_and_regular_batches) ... ok
+test_two_consecutive_updates_on_same_synthetic_batch (test_session3_baseline.BaselineChecks.test_two_consecutive_updates_on_same_synthetic_batch) ... ok
+test_actual_epoch_includes_single_image_final_batch (test_session3_baseline.CnnBaselineChecks.test_actual_epoch_includes_single_image_final_batch) ... ok
+test_bce_numerical_contract (test_session3_baseline.CnnBaselineChecks.test_bce_numerical_contract) ... ok
+test_cached_mnist_splits_normalization_and_independent_rng (test_session3_baseline.CnnBaselineChecks.test_cached_mnist_splits_normalization_and_independent_rng) ... ok
+test_discriminator_gradient_flags_restore_after_generator_failure (test_session3_baseline.CnnBaselineChecks.test_discriminator_gradient_flags_restore_after_generator_failure) ... ok
+test_empty_epoch_is_rejected (test_session3_baseline.CnnBaselineChecks.test_empty_epoch_is_rejected) ... ok
+test_epoch_weights_short_batch_and_ignores_digit_labels (test_session3_baseline.CnnBaselineChecks.test_epoch_weights_short_batch_and_ignores_digit_labels) ... ok
+test_monitoring_preserves_parameters_mode_and_training_rng (test_session3_baseline.CnnBaselineChecks.test_monitoring_preserves_parameters_mode_and_training_rng) ... ok
+test_monitoring_restores_mode_on_error (test_session3_baseline.CnnBaselineChecks.test_monitoring_restores_mode_on_error) ... ok
+test_optimizer_boundaries_targets_and_reported_losses (test_session3_baseline.CnnBaselineChecks.test_optimizer_boundaries_targets_and_reported_losses) ... ok
+test_shapes_and_ranges_for_single_and_regular_batches (test_session3_baseline.CnnBaselineChecks.test_shapes_and_ranges_for_single_and_regular_batches) ... ok
+test_two_consecutive_updates_on_same_synthetic_batch (test_session3_baseline.CnnBaselineChecks.test_two_consecutive_updates_on_same_synthetic_batch) ... ok
+
+----------------------------------------------------------------------
+Ran 34 tests in 0.995s
+
+OK
+
+Focused flake8 (E9,F63,F7,F82) passed for model/train/loader/runner/tests.
+Mypy --no-incremental --cache-dir=/dev/null --follow-imports=skip --ignore-missing-imports --check-untyped-defs train.py loader.py run_baseline.py:
+Success: no issues found in 3 source files
+
+Independent read-only runner review found no blocker.
+Full experiment and artifact verification completed, exit 0.
+
+Audit command:
+PYTHONDONTWRITEBYTECODE=1 MPLCONFIGDIR=/tmp/week08-fashion-run-20260917 OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 python3 -u phase01_research_engineering/week08_gans/results/runs/fashion_mnist_cnn_seed42_20epochs_20260917/audit_run.py
+
+audit passed: completed Fashion-MNIST CNN run, 20 epochs, 8600 recorded updates
+wrote audit_epoch_05_10_20_progression.png and audit_d_g_losses.png
+
+The first audit attempt used an overly strict 1e-9 tolerance for independently
+aggregated float32 D-loss terms. Maximum residual was 2.0634e-9; the audit was
+corrected to the existing training-test tolerance of 1e-6 and rerun successfully.
+No training record or core source was changed for this audit correction.
+
+Passed checks: correct FashionMNIST class/names/cache fingerprints/splits;
+seven current/source-snapshot hashes; all twenty checkpoint hashes and embedded
+configs; finite model/optimizer tensors; Adam step counts; all four invocation
+ranges; class CSV/JSON/count agreement; byte-exact monitoring replay at epochs
+5/10/20 and independent final seed456 replay; valid PNG structures. Original
+config remained byte-identical across all resumes. Finalization occurred only
+at epoch20. All twenty epochs processed 55,000 images in 430 batches.
+
+Visual inspection: clearer garment-like structure from epochs5 to20, with
+remaining texture artifacts and ambiguous samples. Displayed panels are
+concentrated on tops/dresses/trousers, with little obvious footwear/bag variety.
+This is a qualitative coverage concern, not measured generated-class recall.
+

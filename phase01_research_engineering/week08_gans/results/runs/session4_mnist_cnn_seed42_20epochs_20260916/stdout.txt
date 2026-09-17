@@ -1,0 +1,27 @@
+INITIAL EXECUTION (terminated with exit 143 after epoch 12):
+MNIST {'train': 55000, 'validation': 5000, 'test': 10000} | architecture=cnn | device=cpu | seed=42
+Generator 482049 parameters; discriminator 355073
+epoch=1 D=0.124429 G=5.972341 seconds=57.00
+epoch=2 D=0.000344 G=8.899202 seconds=55.07
+epoch=3 D=0.000114 G=9.953066 seconds=54.35
+epoch=4 D=0.000056 G=10.700823 seconds=54.47
+epoch=5 D=0.201683 G=9.202752 seconds=53.91
+epoch=6 D=0.948293 G=1.299032 seconds=54.32
+epoch=7 D=0.950891 G=1.354099 seconds=57.12
+epoch=8 D=0.942708 G=1.377938 seconds=55.30
+epoch=9 D=0.896200 G=1.482020 seconds=56.25
+epoch=10 D=0.856956 G=1.587735 seconds=55.38
+epoch=11 D=0.835679 G=1.652680 seconds=57.67
+epoch=12 D=0.816530 G=1.704455 seconds=58.29
+
+CONTINUATION FROM VERIFIED EPOCH 12 (exit 0):
+Restored epoch 12; continuing through epoch 20
+epoch=13 D=0.788868 G=1.768623 seconds=53.35
+epoch=14 D=0.776621 G=1.805902 seconds=53.89
+epoch=15 D=0.768330 G=1.835934 seconds=53.17
+epoch=16 D=0.761075 G=1.856764 seconds=53.28
+epoch=17 D=0.756201 G=1.885784 seconds=52.65
+epoch=18 D=0.742397 G=1.910427 seconds=52.22
+epoch=19 D=0.732995 G=1.954085 seconds=55.10
+epoch=20 D=0.729749 G=1.967853 seconds=55.28
+COMPLETED: /home/rui.gao/Desktop/my_research_learning_roadmap/phase01_research_engineering/week08_gans/results/runs/session4_mnist_cnn_seed42_20epochs_20260916

@@ -1,0 +1,67 @@
+Recorded at 2026-09-16T19:55:32.257385+04:00
+
+Week 8 Session 4 twenty-epoch comparison verification
+
+The 20-epoch MLP run is reused from 2026-09-15, not retrained today.
+The CNN run starts from seed 42 using unchanged five-epoch source/settings,
+with only the predeclared epoch budget and fresh output/checkpoint paths changed.
+
+Preflight evidence: all five current implementation/test hashes match the
+five-epoch CNN run, whose retained verification records 25 passing tests with
+zero skips, focused flake8, and three-file mypy checks. Those unchanged-source
+unit checks were not rerun for this longer budget. Focused flake8 passed for
+this run's new artifact/figure audit helper.
+
+Fresh independent read-only MLP verification:
+- All 20 checkpoint hashes, embedded configs, epoch numbers and finite weights passed.
+- Five archived source hashes passed; train.py and loader.py are unchanged.
+- Current MLP class definitions are AST-equivalent to the recorded source.
+- Every epoch records 55,000 images and 430 paired updates; all metrics finite.
+- Checkpoints 5, 10, 20 reproduce saved seed-123 grids byte-for-byte.
+- Checkpoint 20 reproduces the seed-456 final panel byte-for-byte.
+- Epoch-5 model/optimizer/RNG states and non-runtime metrics match the original five-epoch MLP.
+- Experiment settings match the CNN configuration except architecture/capacity/provenance.
+
+CNN prefix command:
+PYTHONDONTWRITEBYTECODE=1 MPLCONFIGDIR=/tmp/week08-cnn20-run-20260916 OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 python3 -u phase01_research_engineering/week08_gans/results/runs/session4_mnist_cnn_seed42_20epochs_20260916/audit_and_compare.py --prefix-only
+
+PASS: CNN epochs 1–5 non-runtime metrics and epoch-0–5 grids match the original run
+PASS: CNN epoch-5 model, optimizer, training RNG and loader RNG states match exactly
+
+Interruption and recovery:
+The original process terminated with exit 143 after twelve complete epochs.
+No live training process remained. Epoch-12 checkpoint/hash/config were
+verified; both Adam optimizers had step 5160. The continuation reconstructs
+and checks the original reference images, then restores both model states,
+both Adam states, torch RNG, and loader RNG immediately before epoch 13.
+Original core source/config/snapshots are preserved; continuation.json records
+the separate helper hash, command, restored checkpoint, and timing definition.
+Focused lint and an independent read-only recovery review passed.
+
+Recovery equivalence command:
+PYTHONDONTWRITEBYTECODE=1 MPLCONFIGDIR=/tmp/week08-cnn20-run-20260916 OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 python3 -u phase01_research_engineering/week08_gans/results/runs/session4_mnist_cnn_seed42_20epochs_20260916/continue_run.py --check-only
+
+PASS: interrupted/restored CNN epoch exactly matches uninterrupted metrics, models, Adam states and both RNG states
+
+Full 20-epoch CNN verification completed, exit 0.
+
+Final audit command:
+PYTHONDONTWRITEBYTECODE=1 MPLCONFIGDIR=/tmp/week08-cnn20-run-20260916 OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 python3 -u phase01_research_engineering/week08_gans/results/runs/session4_mnist_cnn_seed42_20epochs_20260916/audit_and_compare.py
+
+PASS: CNN epochs 1–5 non-runtime metrics and epoch-0–5 grids match the original run
+PASS: CNN epoch-5 model, optimizer, training RNG and loader RNG states match exactly
+PASS: continuation helper identity, original config, and final Adam step counts (8,600 each)
+PASS: CNN source/settings unchanged except declared budget; matched MLP experiment settings
+PASS: CNN 20 epochs, 8,600 paired updates, finite metrics, all 20 checkpoint hashes
+PASS: MLP 20 epochs, 8,600 paired updates, finite metrics, all 20 checkpoint hashes
+PASS: CNN discriminator CSV/JSON records and real-image audit counts agree
+PASS: exact replay of both architectures at epochs 5/10/20 and both independent final panels
+PASS: 29 PNGs verified, including three comparison figures
+CNN final losses: 0.7297492277058688 1.9678528371117332
+CNN training seconds: 1098.0761751249374
+MLP reused from 2026-09-15; no new MLP training was performed.
+
+Visual inspection: at epoch 20 the CNN panel is cleaner, more recognizable, and visibly more varied than the MLP panel, which contains many 1-like outputs and residual speckle. Ambiguous CNN digits remain. No quantitative class coverage, convergence, or independent-seed superiority was measured.
+
+Figure readability: initial progression chart needed row spacing; corrected and re-inspected, pass 95/100. This is a reference-free readability assessment, not UI fidelity scoring. All training sources remained unchanged.
+

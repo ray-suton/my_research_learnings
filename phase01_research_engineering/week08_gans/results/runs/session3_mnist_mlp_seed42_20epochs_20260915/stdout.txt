@@ -1,0 +1,23 @@
+MNIST {'train': 55000, 'validation': 5000, 'test': 10000} | device=cpu | seed=42
+Generator 242832 parameters; discriminator 233985
+epoch=1 D=0.939656 G=1.054339 seconds=5.11
+epoch=2 D=0.616742 G=2.051750 seconds=5.03
+epoch=3 D=0.501461 G=2.442401 seconds=5.03
+epoch=4 D=0.465149 G=2.681651 seconds=5.14
+epoch=5 D=0.394094 G=3.368496 seconds=5.09
+epoch=6 D=0.346307 G=3.239930 seconds=5.00
+epoch=7 D=0.377862 G=3.388999 seconds=4.97
+epoch=8 D=0.360534 G=3.705457 seconds=5.04
+epoch=9 D=0.353949 G=3.844448 seconds=5.09
+epoch=10 D=0.380225 G=3.985224 seconds=5.05
+epoch=11 D=0.376100 G=3.630597 seconds=4.99
+epoch=12 D=0.397150 G=3.335236 seconds=5.05
+epoch=13 D=0.381827 G=3.135881 seconds=5.11
+epoch=14 D=0.478265 G=2.738604 seconds=4.93
+epoch=15 D=0.478200 G=2.663872 seconds=5.05
+epoch=16 D=0.467821 G=2.700560 seconds=4.98
+epoch=17 D=0.483811 G=2.665975 seconds=5.01
+epoch=18 D=0.503820 G=2.567646 seconds=5.17
+epoch=19 D=0.508253 G=2.578602 seconds=5.10
+epoch=20 D=0.525343 G=2.534042 seconds=5.03
+COMPLETED: /home/rui.gao/Desktop/my_research_learning_roadmap/phase01_research_engineering/week08_gans/results/runs/session3_mnist_mlp_seed42_20epochs_20260915

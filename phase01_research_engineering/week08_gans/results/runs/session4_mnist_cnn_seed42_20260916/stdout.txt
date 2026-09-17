@@ -1,0 +1,8 @@
+MNIST {'train': 55000, 'validation': 5000, 'test': 10000} | architecture=cnn | device=cpu | seed=42
+Generator 482049 parameters; discriminator 355073
+epoch=1 D=0.124429 G=5.972341 seconds=51.33
+epoch=2 D=0.000344 G=8.899202 seconds=52.28
+epoch=3 D=0.000114 G=9.953066 seconds=52.14
+epoch=4 D=0.000056 G=10.700823 seconds=52.89
+epoch=5 D=0.201683 G=9.202752 seconds=54.08
+COMPLETED: /home/rui.gao/Desktop/my_research_learning_roadmap/phase01_research_engineering/week08_gans/results/runs/session4_mnist_cnn_seed42_20260916

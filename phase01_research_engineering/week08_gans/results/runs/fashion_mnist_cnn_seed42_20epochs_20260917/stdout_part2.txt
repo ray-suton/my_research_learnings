@@ -1,0 +1,9 @@
+Fashion-MNIST {'test': 10000, 'train': 55000, 'validation': 5000} | architecture=cnn | device=cpu | seed=42
+Generator 482049 parameters; discriminator 355073
+Executing epochs 6–10 of declared 20
+epoch=6 D=0.629407 G=1.872930 seconds=51.01
+epoch=7 D=0.672876 G=1.774551 seconds=50.69
+epoch=8 D=0.693773 G=1.735755 seconds=53.53
+epoch=9 D=0.710801 G=1.710138 seconds=50.67
+epoch=10 D=0.707272 G=1.715804 seconds=53.29
+PAUSED at epoch 10/20: /home/rui.gao/Desktop/my_research_learning_roadmap/phase01_research_engineering/week08_gans/results/runs/fashion_mnist_cnn_seed42_20epochs_20260917

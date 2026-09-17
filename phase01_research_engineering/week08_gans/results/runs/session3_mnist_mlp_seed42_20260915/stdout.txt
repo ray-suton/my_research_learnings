@@ -1,0 +1,8 @@
+MNIST {'train': 55000, 'validation': 5000, 'test': 10000} | device=cpu | seed=42
+Generator 242832 parameters; discriminator 233985
+epoch=1 D=0.939656 G=1.054339 seconds=5.35
+epoch=2 D=0.616742 G=2.051750 seconds=5.01
+epoch=3 D=0.501461 G=2.442401 seconds=5.07
+epoch=4 D=0.465149 G=2.681651 seconds=5.01
+epoch=5 D=0.394094 G=3.368496 seconds=5.07
+COMPLETED: /home/rui.gao/Desktop/my_research_learning_roadmap/phase01_research_engineering/week08_gans/results/runs/session3_mnist_mlp_seed42_20260915

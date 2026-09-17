@@ -1,0 +1,43 @@
+INVOCATION 1
+Fashion-MNIST {'train': 55000, 'validation': 5000, 'test': 10000} | architecture=cnn | device=cpu | seed=42
+Generator 482049 parameters; discriminator 355073
+Executing epochs 1–5 of declared 20
+epoch=1 D=0.980615 G=1.350587 seconds=45.43
+epoch=2 D=0.804469 G=1.585917 seconds=51.12
+epoch=3 D=0.750542 G=1.851464 seconds=50.78
+epoch=4 D=0.632259 G=2.089879 seconds=51.27
+epoch=5 D=0.623231 G=2.072109 seconds=51.89
+PAUSED at epoch 5/20: /home/rui.gao/Desktop/my_research_learning_roadmap/phase01_research_engineering/week08_gans/results/runs/fashion_mnist_cnn_seed42_20epochs_20260917
+
+INVOCATION 2
+Fashion-MNIST {'test': 10000, 'train': 55000, 'validation': 5000} | architecture=cnn | device=cpu | seed=42
+Generator 482049 parameters; discriminator 355073
+Executing epochs 6–10 of declared 20
+epoch=6 D=0.629407 G=1.872930 seconds=51.01
+epoch=7 D=0.672876 G=1.774551 seconds=50.69
+epoch=8 D=0.693773 G=1.735755 seconds=53.53
+epoch=9 D=0.710801 G=1.710138 seconds=50.67
+epoch=10 D=0.707272 G=1.715804 seconds=53.29
+PAUSED at epoch 10/20: /home/rui.gao/Desktop/my_research_learning_roadmap/phase01_research_engineering/week08_gans/results/runs/fashion_mnist_cnn_seed42_20epochs_20260917
+
+INVOCATION 3
+Fashion-MNIST {'test': 10000, 'train': 55000, 'validation': 5000} | architecture=cnn | device=cpu | seed=42
+Generator 482049 parameters; discriminator 355073
+Executing epochs 11–15 of declared 20
+epoch=11 D=0.712395 G=1.716537 seconds=53.93
+epoch=12 D=0.712406 G=1.717771 seconds=53.72
+epoch=13 D=0.708597 G=1.742248 seconds=52.87
+epoch=14 D=0.696657 G=1.763112 seconds=53.79
+epoch=15 D=0.696871 G=1.771460 seconds=52.99
+PAUSED at epoch 15/20: /home/rui.gao/Desktop/my_research_learning_roadmap/phase01_research_engineering/week08_gans/results/runs/fashion_mnist_cnn_seed42_20epochs_20260917
+
+INVOCATION 4
+Fashion-MNIST {'test': 10000, 'train': 55000, 'validation': 5000} | architecture=cnn | device=cpu | seed=42
+Generator 482049 parameters; discriminator 355073
+Executing epochs 16–20 of declared 20
+epoch=16 D=0.684249 G=1.797187 seconds=54.04
+epoch=17 D=0.681132 G=1.815314 seconds=53.81
+epoch=18 D=0.680725 G=1.815709 seconds=52.87
+epoch=19 D=0.672343 G=1.836006 seconds=53.99
+epoch=20 D=0.665465 G=1.862303 seconds=53.63
+COMPLETED: /home/rui.gao/Desktop/my_research_learning_roadmap/phase01_research_engineering/week08_gans/results/runs/fashion_mnist_cnn_seed42_20epochs_20260917

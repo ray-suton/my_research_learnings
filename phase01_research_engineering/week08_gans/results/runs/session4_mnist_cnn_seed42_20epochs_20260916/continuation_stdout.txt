@@ -1,0 +1,10 @@
+Restored epoch 12; continuing through epoch 20
+epoch=13 D=0.788868 G=1.768623 seconds=53.35
+epoch=14 D=0.776621 G=1.805902 seconds=53.89
+epoch=15 D=0.768330 G=1.835934 seconds=53.17
+epoch=16 D=0.761075 G=1.856764 seconds=53.28
+epoch=17 D=0.756201 G=1.885784 seconds=52.65
+epoch=18 D=0.742397 G=1.910427 seconds=52.22
+epoch=19 D=0.732995 G=1.954085 seconds=55.10
+epoch=20 D=0.729749 G=1.967853 seconds=55.28
+COMPLETED: /home/rui.gao/Desktop/my_research_learning_roadmap/phase01_research_engineering/week08_gans/results/runs/session4_mnist_cnn_seed42_20epochs_20260916

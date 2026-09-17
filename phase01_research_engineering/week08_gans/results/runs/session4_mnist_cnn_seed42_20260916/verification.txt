@@ -1,0 +1,66 @@
+Week 8 Session 4 CNN verification
+
+Date: 2026-09-16T17:57:36.797089+04:00
+
+Preflight command: PYTHONDONTWRITEBYTECODE=1 MPLCONFIGDIR=/tmp/week08-cnn-tests-20260916 OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 python3 -u phase01_research_engineering/week08_gans/tests/test_session3_baseline.py
+
+test_default_preserves_mlp_classes_and_initialization (__main__.ArchitectureSelectionChecks.test_default_preserves_mlp_classes_and_initialization) ... ok
+test_explicit_cnn_selection_honors_noise_width (__main__.ArchitectureSelectionChecks.test_explicit_cnn_selection_honors_noise_width) ... ok
+test_unknown_architecture_is_rejected (__main__.ArchitectureSelectionChecks.test_unknown_architecture_is_rejected) ... ok
+test_actual_epoch_includes_single_image_final_batch (__main__.BaselineChecks.test_actual_epoch_includes_single_image_final_batch) ... ok
+test_bce_numerical_contract (__main__.BaselineChecks.test_bce_numerical_contract) ... ok
+test_cached_mnist_splits_normalization_and_independent_rng (__main__.BaselineChecks.test_cached_mnist_splits_normalization_and_independent_rng) ... ok
+test_discriminator_gradient_flags_restore_after_generator_failure (__main__.BaselineChecks.test_discriminator_gradient_flags_restore_after_generator_failure) ... ok
+test_empty_epoch_is_rejected (__main__.BaselineChecks.test_empty_epoch_is_rejected) ... ok
+test_epoch_weights_short_batch_and_ignores_digit_labels (__main__.BaselineChecks.test_epoch_weights_short_batch_and_ignores_digit_labels) ... ok
+test_monitoring_preserves_parameters_mode_and_training_rng (__main__.BaselineChecks.test_monitoring_preserves_parameters_mode_and_training_rng) ... ok
+test_monitoring_restores_mode_on_error (__main__.BaselineChecks.test_monitoring_restores_mode_on_error) ... ok
+test_optimizer_boundaries_targets_and_reported_losses (__main__.BaselineChecks.test_optimizer_boundaries_targets_and_reported_losses) ... ok
+test_shapes_and_ranges_for_single_and_regular_batches (__main__.BaselineChecks.test_shapes_and_ranges_for_single_and_regular_batches) ... ok
+test_two_consecutive_updates_on_same_synthetic_batch (__main__.BaselineChecks.test_two_consecutive_updates_on_same_synthetic_batch) ... ok
+test_actual_epoch_includes_single_image_final_batch (__main__.CnnBaselineChecks.test_actual_epoch_includes_single_image_final_batch) ... ok
+test_bce_numerical_contract (__main__.CnnBaselineChecks.test_bce_numerical_contract) ... ok
+test_cached_mnist_splits_normalization_and_independent_rng (__main__.CnnBaselineChecks.test_cached_mnist_splits_normalization_and_independent_rng) ... ok
+test_discriminator_gradient_flags_restore_after_generator_failure (__main__.CnnBaselineChecks.test_discriminator_gradient_flags_restore_after_generator_failure) ... ok
+test_empty_epoch_is_rejected (__main__.CnnBaselineChecks.test_empty_epoch_is_rejected) ... ok
+test_epoch_weights_short_batch_and_ignores_digit_labels (__main__.CnnBaselineChecks.test_epoch_weights_short_batch_and_ignores_digit_labels) ... ok
+test_monitoring_preserves_parameters_mode_and_training_rng (__main__.CnnBaselineChecks.test_monitoring_preserves_parameters_mode_and_training_rng) ... ok
+test_monitoring_restores_mode_on_error (__main__.CnnBaselineChecks.test_monitoring_restores_mode_on_error) ... ok
+test_optimizer_boundaries_targets_and_reported_losses (__main__.CnnBaselineChecks.test_optimizer_boundaries_targets_and_reported_losses) ... ok
+test_shapes_and_ranges_for_single_and_regular_batches (__main__.CnnBaselineChecks.test_shapes_and_ranges_for_single_and_regular_batches) ... ok
+test_two_consecutive_updates_on_same_synthetic_batch (__main__.CnnBaselineChecks.test_two_consecutive_updates_on_same_synthetic_batch) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 0.527s
+
+OK
+
+
+Mypy: --no-incremental --cache-dir=/dev/null --follow-imports=skip --ignore-missing-imports --check-untyped-defs on train.py, loader.py, run_baseline.py
+
+Success: no issues found in 3 source files
+
+
+Command: /home/rui.gao/anaconda3/bin/python3 -m flake8 --isolated --select=E9,F63,F7,F82 phase01_research_engineering/week08_gans/model.py phase01_research_engineering/week08_gans/train.py phase01_research_engineering/week08_gans/loader.py phase01_research_engineering/week08_gans/run_baseline.py phase01_research_engineering/week08_gans/tests/test_session3_baseline.py
+Exit code: 0
+
+
+AST parsing passed for model.py, train.py, loader.py, run_baseline.py and tests/test_session3_baseline.py.
+
+Measured run: completed, exit 0; five epochs and 2,150 paired updates.
+
+Post-run audit command: PYTHONDONTWRITEBYTECODE=1 MPLCONFIGDIR=/tmp/week08-cnn-run-20260916 OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 python3 -u phase01_research_engineering/week08_gans/results/runs/session4_mnist_cnn_seed42_20260916/audit_and_compare.py
+
+PASS: 18 baseline settings and split identities match
+PASS: all five source snapshots match; original MLP definitions and update/data code preserved
+PASS: 5 epochs, 2,150 paired updates, finite recorded losses, 5 checkpoint hashes
+PASS: discriminator CSV/JSON counts agree; 11 PNG files verify
+PASS: final checkpoint exactly reproduces both CNN panels and the original MLP final panel
+Saved: mlp_vs_cnn_epoch05.png
+Final CNN losses: {'d_loss': 0.20168329806846186, 'g_loss': 9.202752236990495}
+Training seconds: 262.7326655939978
+Total recorded seconds: 269.02117609398556
+
+The additional comparison PNG was generated and structurally checked after the eleven original figures; the final run contains twelve PNGs. Focused flake8 also passed for audit_and_compare.py.
+
+Visual inspection: CNN backgrounds are cleaner and strokes are more continuous than the five-epoch MLP; many digits remain malformed/incomplete. No generated-class coverage or independent-seed superiority was measured.

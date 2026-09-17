@@ -1,0 +1,55 @@
+Session 3 baseline verification
+Final test command:
+PYTHONDONTWRITEBYTECODE=1 MPLCONFIGDIR=/tmp/week08-mpl-tests OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 python3 -u phase01_research_engineering/week08_gans/tests/test_session3_baseline.py
+Exit code: 0
+test_actual_epoch_includes_single_image_final_batch (__main__.BaselineChecks.test_actual_epoch_includes_single_image_final_batch) ... ok
+test_bce_numerical_contract (__main__.BaselineChecks.test_bce_numerical_contract) ... ok
+test_cached_mnist_splits_normalization_and_independent_rng (__main__.BaselineChecks.test_cached_mnist_splits_normalization_and_independent_rng) ... ok
+test_discriminator_gradient_flags_restore_after_generator_failure (__main__.BaselineChecks.test_discriminator_gradient_flags_restore_after_generator_failure) ... ok
+test_empty_epoch_is_rejected (__main__.BaselineChecks.test_empty_epoch_is_rejected) ... ok
+test_epoch_weights_short_batch_and_ignores_digit_labels (__main__.BaselineChecks.test_epoch_weights_short_batch_and_ignores_digit_labels) ... ok
+test_monitoring_preserves_parameters_mode_and_training_rng (__main__.BaselineChecks.test_monitoring_preserves_parameters_mode_and_training_rng) ... ok
+test_monitoring_restores_mode_on_error (__main__.BaselineChecks.test_monitoring_restores_mode_on_error) ... ok
+test_optimizer_boundaries_targets_and_reported_losses (__main__.BaselineChecks.test_optimizer_boundaries_targets_and_reported_losses) ... ok
+test_shapes_and_ranges_for_single_and_regular_batches (__main__.BaselineChecks.test_shapes_and_ranges_for_single_and_regular_batches) ... ok
+test_two_consecutive_updates_on_same_synthetic_batch (__main__.BaselineChecks.test_two_consecutive_updates_on_same_synthetic_batch) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.230s
+
+OK
+
+Type check command:
+PYTHONDONTWRITEBYTECODE=1 python3 -m mypy --no-incremental --cache-dir=/dev/null --follow-imports=skip --ignore-missing-imports --check-untyped-defs phase01_research_engineering/week08_gans/train.py phase01_research_engineering/week08_gans/loader.py phase01_research_engineering/week08_gans/run_baseline.py
+Success: no issues found in 3 source files
+
+Scoped flake8 E9,F63,F7,F82: exit 0 (before the final annotation-only correction).
+
+Artifact audit:
+PASS: source snapshots/current sources, five checkpoint hashes, epoch counts, loss identity, no test-image use, all PNG structures
+PNG count: 11
+Total seconds: 31.29013983999903 Training seconds: 25.522847092011943 Peak RSS MB: 758.30078125
+History:
+{'batches': 430, 'd_fake_loss': 0.649639, 'd_fake_score_after': 0.369538, 'd_fake_score_before': 0.467651, 'd_loss': 0.939656, 'd_real_loss': 0.290016, 'd_real_score': 0.759569, 'epoch': 1, 'fixed_initial_fake': 0.262415, 'fixed_train_real': 0.850306, 'fixed_validation_real': 0.866659, 'g_loss': 1.054339, 'samples': 55000, 'training_seconds': 5.345739}
+{'batches': 430, 'd_fake_loss': 0.353082, 'd_fake_score_after': 0.157283, 'd_fake_score_before': 0.279905, 'd_loss': 0.616742, 'd_real_loss': 0.26366, 'd_real_score': 0.809337, 'epoch': 2, 'fixed_initial_fake': 0.093486, 'fixed_train_real': 0.754735, 'fixed_validation_real': 0.709182, 'g_loss': 2.05175, 'samples': 55000, 'training_seconds': 5.014425}
+{'batches': 430, 'd_fake_loss': 0.255527, 'd_fake_score_after': 0.116147, 'd_fake_score_before': 0.209343, 'd_loss': 0.501461, 'd_real_loss': 0.245934, 'd_real_score': 0.831189, 'epoch': 3, 'fixed_initial_fake': 0.034194, 'fixed_train_real': 0.857895, 'fixed_validation_real': 0.854998, 'g_loss': 2.442401, 'samples': 55000, 'training_seconds': 5.073649}
+{'batches': 430, 'd_fake_loss': 0.22217, 'd_fake_score_after': 0.104057, 'd_fake_score_before': 0.181095, 'd_loss': 0.465149, 'd_real_loss': 0.242978, 'd_real_score': 0.842841, 'epoch': 4, 'fixed_initial_fake': 0.015468, 'fixed_train_real': 0.930624, 'fixed_validation_real': 0.95585, 'g_loss': 2.681651, 'samples': 55000, 'training_seconds': 5.014905}
+{'batches': 430, 'd_fake_loss': 0.182964, 'd_fake_score_after': 0.068469, 'd_fake_score_before': 0.147085, 'd_loss': 0.394094, 'd_real_loss': 0.21113, 'd_real_score': 0.873352, 'epoch': 5, 'fixed_initial_fake': 0.006974, 'fixed_train_real': 0.932025, 'fixed_validation_real': 0.912905, 'g_loss': 3.368496, 'samples': 55000, 'training_seconds': 5.074129}
+D real-image audit:
+train count 55000 {'mean_real_probability': 0.9098233103862794, 'mean_real_bce': 0.12289851230783151, 'fraction_classified_real': 0.9579818227735433}
+by_digit: [(0, 0.9837, 0.9925), (1, 0.9069, 0.9838), (2, 0.8622, 0.9129), (3, 0.876, 0.9309), (4, 0.9275, 0.9746), (5, 0.849, 0.8984), (6, 0.9573, 0.9899), (7, 0.933, 0.9711), (8, 0.8644, 0.9375), (9, 0.9334, 0.9802)]
+validation count 5000 {'mean_real_probability': 0.9072940056011081, 'mean_real_bce': 0.12788594703588554, 'fraction_classified_real': 0.957000001847744}
+by_digit: [(0, 0.9818, 0.9896), (1, 0.907, 0.9837), (2, 0.86, 0.9168), (3, 0.8668, 0.9171), (4, 0.9163, 0.9718), (5, 0.8504, 0.8979), (6, 0.9578, 0.9879), (7, 0.9295, 0.9694), (8, 0.8621, 0.9464), (9, 0.9352, 0.9793)]
+Final checkpoint: /home/rui.gao/data/ai_research_roadmap/checkpoints/week08_gans/session3_mnist_mlp_seed42_20260915/epoch_05.pt
+
+Visual inspection:
+Real/generated panel, single pair, epoch 1 and epoch 5 fixed-noise panels, and curves viewed.
+Generated samples exhibit digit-like structures, speckled backgrounds and malformed/ambiguous strokes.
+Images and loss histories are retained without cherry-picking a best-looking checkpoint.
+Scientific figure legibility/provenance inspected directly; no synthetic illustration substituted.
+
+
+Checkpoint replay: epoch-5 weights reproduce both generated panels byte-for-byte (seeds 123 and 456).
+
+Final source lint: flake8 --isolated --select=E9,F63,F7,F82 on train.py, loader.py, run_baseline.py, and the test suite exited 0 after the annotation correction.
+Documentation: 13 Markdown files, 86 local links, 2 heading anchors passed; git diff --check exited 0.

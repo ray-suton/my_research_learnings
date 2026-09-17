@@ -1,0 +1,24 @@
+20-epoch training-budget follow-up
+Implementation/test source hashes are unchanged from the verified five-epoch baseline.
+Previous unit verification: 11 tests passed, zero skips; source unchanged, so tests were not rerun.
+Reference: ../session3_mnist_mlp_seed42_20260915/verification.txt
+
+Fresh longer-run artifact audit:
+PASS: epoch-5 weights, optimizer states, RNG states, metrics, and sample grids exactly match the original five-epoch run.
+PASS: all 20 checkpoints and source hashes; all epoch counts/loss identities; no test-image use; final checkpoint reproduces both panels exactly.
+PNG count: 27
+Real-image audit by digit (validation mean probability): [(0, 0.9893, 0.9959), (1, 0.3029, 0.1486), (2, 0.9452, 0.9584), (3, 0.9426, 0.9642), (4, 0.8127, 0.8327), (5, 0.9554, 0.981), (6, 0.981, 0.9919), (7, 0.9498, 0.973), (8, 0.9442, 0.9722), (9, 0.8389, 0.888)]
+REPORT_TIMESTAMP 2026-09-15-163401
+
+Run metrics:
+Status: completed epochs: 20 training_seconds: 100.95919064202462 total_seconds: 111.34270774200559 RSS MiB: 814.34765625
+{'batches': 430, 'd_fake_loss': 0.18296380980502475, 'd_fake_score_after': 0.06846894246542995, 'd_fake_score_before': 0.1470846897661686, 'd_loss': 0.3940942952589555, 'd_real_loss': 0.21113048439025878, 'd_real_score': 0.8733521162293174, 'epoch': 5, 'fixed_initial_fake': 0.006973507814109325, 'fixed_train_real': 0.9320253133773804, 'fixed_validation_real': 0.9129045009613037, 'g_loss': 3.368496302240545, 'samples': 55000, 'training_seconds': 5.086870762999752}
+{'batches': 430, 'd_fake_loss': 0.16017150561836632, 'd_fake_score_after': 0.06038981649750336, 'd_fake_score_before': 0.12076490924324501, 'd_loss': 0.3802245016141371, 'd_real_loss': 0.22005299584215338, 'd_real_score': 0.8884264780217951, 'epoch': 10, 'fixed_initial_fake': 0.0002273734426125884, 'fixed_train_real': 0.8895649313926697, 'fixed_validation_real': 0.8519044518470764, 'g_loss': 3.9852240217382255, 'samples': 55000, 'training_seconds': 5.045060435004416}
+{'batches': 430, 'd_fake_loss': 0.19320378496213392, 'd_fake_score_after': 0.1210322507110509, 'd_fake_score_before': 0.1512121191750873, 'd_loss': 0.4781996271090074, 'd_real_loss': 0.28499584260420363, 'd_real_score': 0.851095347551866, 'epoch': 15, 'fixed_initial_fake': 6.506596400868148e-05, 'fixed_train_real': 0.8848154544830322, 'fixed_validation_real': 0.8741998672485352, 'g_loss': 2.6638723187880085, 'samples': 55000, 'training_seconds': 5.046400838997215}
+{'batches': 430, 'd_fake_loss': 0.21604777336554093, 'd_fake_score_after': 0.13246732594750144, 'd_fake_score_before': 0.16385291014801373, 'd_loss': 0.5253429781913758, 'd_real_loss': 0.30929520439668134, 'd_real_score': 0.8386237814989957, 'epoch': 20, 'fixed_initial_fake': 1.9178882212145254e-05, 'fixed_train_real': 0.8492647409439087, 'fixed_validation_real': 0.8504413962364197, 'g_loss': 2.534042002105713, 'samples': 55000, 'training_seconds': 5.032885371008888}
+train {'mean_real_probability': 0.859523044252893, 'mean_real_bce': 0.2563475315023452, 'fraction_classified_real': 0.8622000018547882}
+validation {'mean_real_probability': 0.8596905365221202, 'mean_real_bce': 0.2574927925384481, 'fraction_classified_real': 0.862199999153614}
+
+Visual inspection: epoch-10/20 seed-123 panels and the final real-vs-generated seed-456 panel viewed.
+Epoch 20 shows cleaner strokes/backgrounds but many 1-like outputs; this is a qualitative mode-concentration concern.
+No external digit classifier, FID, or generated-class coverage metric was used.

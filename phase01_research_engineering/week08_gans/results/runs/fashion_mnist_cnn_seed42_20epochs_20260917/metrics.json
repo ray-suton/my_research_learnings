@@ -1,0 +1,706 @@
+{
+  "checkpoints": [
+    {
+      "epoch": 1,
+      "path": "/home/rui.gao/data/ai_research_roadmap/checkpoints/week08_gans/fashion_mnist_cnn_seed42_20epochs_20260917/epoch_01.pt",
+      "sha256": "419dadb9285e7605e4643bbb7e7dbeaa90feccc7257d1b7360f556549b5876f1"
+    },
+    {
+      "epoch": 2,
+      "path": "/home/rui.gao/data/ai_research_roadmap/checkpoints/week08_gans/fashion_mnist_cnn_seed42_20epochs_20260917/epoch_02.pt",
+      "sha256": "b1e2d1a9cbeaf7841b9d67ec996efc3608076ca9171b54c5dc8c29f580fb7712"
+    },
+    {
+      "epoch": 3,
+      "path": "/home/rui.gao/data/ai_research_roadmap/checkpoints/week08_gans/fashion_mnist_cnn_seed42_20epochs_20260917/epoch_03.pt",
+      "sha256": "4fa3f38d713efa8bf7b168ad4236243cbcd8aca3b178935cf5d64e61199f2b34"
+    },
+    {
+      "epoch": 4,
+      "path": "/home/rui.gao/data/ai_research_roadmap/checkpoints/week08_gans/fashion_mnist_cnn_seed42_20epochs_20260917/epoch_04.pt",
+      "sha256": "0a7785133710eea3d891f57e22b5169aa5cdfd7db743aee956dd0df9bdeafd10"
+    },
+    {
+      "epoch": 5,
+      "path": "/home/rui.gao/data/ai_research_roadmap/checkpoints/week08_gans/fashion_mnist_cnn_seed42_20epochs_20260917/epoch_05.pt",
+      "sha256": "5a1741aec2bc465a53b70673569b3f7838c51b2cf265c1b21f1be60761f4019e"
+    },
+    {
+      "epoch": 6,
+      "path": "/home/rui.gao/data/ai_research_roadmap/checkpoints/week08_gans/fashion_mnist_cnn_seed42_20epochs_20260917/epoch_06.pt",
+      "sha256": "33eebe6d216c307b300b03e943a078f705dc56fbfb2342042a289cf21d443987"
+    },
+    {
+      "epoch": 7,
+      "path": "/home/rui.gao/data/ai_research_roadmap/checkpoints/week08_gans/fashion_mnist_cnn_seed42_20epochs_20260917/epoch_07.pt",
+      "sha256": "ff8bd1d662be530bdc14d58b29ecb4d73ba8b36afa5378aa82bcac7ec3f306c8"
+    },
+    {
+      "epoch": 8,
+      "path": "/home/rui.gao/data/ai_research_roadmap/checkpoints/week08_gans/fashion_mnist_cnn_seed42_20epochs_20260917/epoch_08.pt",
+      "sha256": "c46c6c8c4040bb63571f79d23b893f8d09b5d9f8f9cf0268e286e6f03baf6ffb"
+    },
+    {
+      "epoch": 9,
+      "path": "/home/rui.gao/data/ai_research_roadmap/checkpoints/week08_gans/fashion_mnist_cnn_seed42_20epochs_20260917/epoch_09.pt",
+      "sha256": "8b675108df98064c9326bb61b07e7edffd5015877d433284088df671c2340d3d"
+    },
+    {
+      "epoch": 10,
+      "path": "/home/rui.gao/data/ai_research_roadmap/checkpoints/week08_gans/fashion_mnist_cnn_seed42_20epochs_20260917/epoch_10.pt",
+      "sha256": "894fbef33d72c7549e15ac95e8dae928e0d52575b1c83c2ef374775a5a8a499f"
+    },
+    {
+      "epoch": 11,
+      "path": "/home/rui.gao/data/ai_research_roadmap/checkpoints/week08_gans/fashion_mnist_cnn_seed42_20epochs_20260917/epoch_11.pt",
+      "sha256": "0a073954df7fc79a953e7d128ec1cfdefe1c5ca6c54cc3004cf334f8e2713334"
+    },
+    {
+      "epoch": 12,
+      "path": "/home/rui.gao/data/ai_research_roadmap/checkpoints/week08_gans/fashion_mnist_cnn_seed42_20epochs_20260917/epoch_12.pt",
+      "sha256": "020f5082595654d3afbd5c0808e4c9f93cd2f37a21a6124bb57a73c9468cbb0d"
+    },
+    {
+      "epoch": 13,
+      "path": "/home/rui.gao/data/ai_research_roadmap/checkpoints/week08_gans/fashion_mnist_cnn_seed42_20epochs_20260917/epoch_13.pt",
+      "sha256": "23495f437eb2709d3d3e73882a84ed60f7f1f5789a0291e8a5335be9fe2c8096"
+    },
+    {
+      "epoch": 14,
+      "path": "/home/rui.gao/data/ai_research_roadmap/checkpoints/week08_gans/fashion_mnist_cnn_seed42_20epochs_20260917/epoch_14.pt",
+      "sha256": "1c75da10ae0265d23f56a1cf4ac0597546a55628a6f41296da5f2cd40dfc78a1"
+    },
+    {
+      "epoch": 15,
+      "path": "/home/rui.gao/data/ai_research_roadmap/checkpoints/week08_gans/fashion_mnist_cnn_seed42_20epochs_20260917/epoch_15.pt",
+      "sha256": "8565fd51decd63d101311c593dd93c7686bbc55c2d034164d6e710e8d72640cd"
+    },
+    {
+      "epoch": 16,
+      "path": "/home/rui.gao/data/ai_research_roadmap/checkpoints/week08_gans/fashion_mnist_cnn_seed42_20epochs_20260917/epoch_16.pt",
+      "sha256": "58f5abd8e2269fb8e0ac104ed20e6a238720da79aa34ff30d7a11eade6270879"
+    },
+    {
+      "epoch": 17,
+      "path": "/home/rui.gao/data/ai_research_roadmap/checkpoints/week08_gans/fashion_mnist_cnn_seed42_20epochs_20260917/epoch_17.pt",
+      "sha256": "685eb6d0765b78c08a3ac3cce86036f54985d663928e0d3bd3085ee12cc1ff2c"
+    },
+    {
+      "epoch": 18,
+      "path": "/home/rui.gao/data/ai_research_roadmap/checkpoints/week08_gans/fashion_mnist_cnn_seed42_20epochs_20260917/epoch_18.pt",
+      "sha256": "08fef0cdd7ad7f64c51a49bf08c0d22387a7907c302be9dc4fcde2a52578d8d3"
+    },
+    {
+      "epoch": 19,
+      "path": "/home/rui.gao/data/ai_research_roadmap/checkpoints/week08_gans/fashion_mnist_cnn_seed42_20epochs_20260917/epoch_19.pt",
+      "sha256": "f3f4ee5dc8cfaf496dfc152244de17011b2f4d5f98c9d832c40ad312a10db4a5"
+    },
+    {
+      "epoch": 20,
+      "path": "/home/rui.gao/data/ai_research_roadmap/checkpoints/week08_gans/fashion_mnist_cnn_seed42_20epochs_20260917/epoch_20.pt",
+      "sha256": "cf16df5c27785a48af2b0c893e4c9464dd6cb10373e75308f80582d03d20e7d1"
+    }
+  ],
+  "completed_at": "2026-09-17T11:20:39.330461+00:00",
+  "discriminator_by_class": [
+    {
+      "class_id": 0,
+      "class_name": "T-shirt/top",
+      "count": 5452,
+      "fraction_classified_real": 0.7518342137336731,
+      "mean_real_bce": 0.4705062695085266,
+      "mean_real_probability": 0.7069982277862837,
+      "split": "train"
+    },
+    {
+      "class_id": 1,
+      "class_name": "Trouser",
+      "count": 5490,
+      "fraction_classified_real": 0.9205828905105591,
+      "mean_real_bce": 0.15458738348564932,
+      "mean_real_probability": 0.8993872128420243,
+      "split": "train"
+    },
+    {
+      "class_id": 2,
+      "class_name": "Pullover",
+      "count": 5473,
+      "fraction_classified_real": 0.7948108911514282,
+      "mean_real_bce": 0.4087979394982346,
+      "mean_real_probability": 0.7294910637903111,
+      "split": "train"
+    },
+    {
+      "class_id": 3,
+      "class_name": "Dress",
+      "count": 5524,
+      "fraction_classified_real": 0.4981897175312042,
+      "mean_real_bce": 0.8154479609930072,
+      "mean_real_probability": 0.5224073460857687,
+      "split": "train"
+    },
+    {
+      "class_id": 4,
+      "class_name": "Coat",
+      "count": 5490,
+      "fraction_classified_real": 0.6455373167991638,
+      "mean_real_bce": 0.6313517711313893,
+      "mean_real_probability": 0.6039834513154241,
+      "split": "train"
+    },
+    {
+      "class_id": 5,
+      "class_name": "Sandal",
+      "count": 5491,
+      "fraction_classified_real": 0.9976325035095215,
+      "mean_real_bce": 0.008104796252512318,
+      "mean_real_probability": 0.9935557854140832,
+      "split": "train"
+    },
+    {
+      "class_id": 6,
+      "class_name": "Shirt",
+      "count": 5510,
+      "fraction_classified_real": 0.574954628944397,
+      "mean_real_bce": 0.7395131788472004,
+      "mean_real_probability": 0.5644106708308124,
+      "split": "train"
+    },
+    {
+      "class_id": 7,
+      "class_name": "Sneaker",
+      "count": 5555,
+      "fraction_classified_real": 1.0,
+      "mean_real_bce": 0.0003078011578561722,
+      "mean_real_probability": 0.9997018793807386,
+      "split": "train"
+    },
+    {
+      "class_id": 8,
+      "class_name": "Bag",
+      "count": 5508,
+      "fraction_classified_real": 0.9791212677955627,
+      "mean_real_bce": 0.052581912782674566,
+      "mean_real_probability": 0.9660764725922121,
+      "split": "train"
+    },
+    {
+      "class_id": 9,
+      "class_name": "Ankle boot",
+      "count": 5507,
+      "fraction_classified_real": 0.9992736577987671,
+      "mean_real_bce": 0.002782968800443139,
+      "mean_real_probability": 0.9977562705682976,
+      "split": "train"
+    },
+    {
+      "class_id": 0,
+      "class_name": "T-shirt/top",
+      "count": 548,
+      "fraction_classified_real": 0.7226277589797974,
+      "mean_real_bce": 0.5358436447907605,
+      "mean_real_probability": 0.6803567225426218,
+      "split": "validation"
+    },
+    {
+      "class_id": 1,
+      "class_name": "Trouser",
+      "count": 510,
+      "fraction_classified_real": 0.9372549057006836,
+      "mean_real_bce": 0.14437285902979377,
+      "mean_real_probability": 0.9097248184038144,
+      "split": "validation"
+    },
+    {
+      "class_id": 2,
+      "class_name": "Pullover",
+      "count": 527,
+      "fraction_classified_real": 0.8045541048049927,
+      "mean_real_bce": 0.4204497383119469,
+      "mean_real_probability": 0.7304455821934303,
+      "split": "validation"
+    },
+    {
+      "class_id": 3,
+      "class_name": "Dress",
+      "count": 476,
+      "fraction_classified_real": 0.49369746446609497,
+      "mean_real_bce": 0.818932039361488,
+      "mean_real_probability": 0.5278186675615045,
+      "split": "validation"
+    },
+    {
+      "class_id": 4,
+      "class_name": "Coat",
+      "count": 510,
+      "fraction_classified_real": 0.6333333253860474,
+      "mean_real_bce": 0.6724456707797443,
+      "mean_real_probability": 0.5945776899326958,
+      "split": "validation"
+    },
+    {
+      "class_id": 5,
+      "class_name": "Sandal",
+      "count": 509,
+      "fraction_classified_real": 0.9980353713035583,
+      "mean_real_bce": 0.00793516689410537,
+      "mean_real_probability": 0.9940987520051612,
+      "split": "validation"
+    },
+    {
+      "class_id": 6,
+      "class_name": "Shirt",
+      "count": 490,
+      "fraction_classified_real": 0.5367347002029419,
+      "mean_real_bce": 0.8270492375555106,
+      "mean_real_probability": 0.5346287689418817,
+      "split": "validation"
+    },
+    {
+      "class_id": 7,
+      "class_name": "Sneaker",
+      "count": 445,
+      "fraction_classified_real": 1.0,
+      "mean_real_bce": 0.0003487151903868835,
+      "mean_real_probability": 0.9996557720591513,
+      "split": "validation"
+    },
+    {
+      "class_id": 8,
+      "class_name": "Bag",
+      "count": 492,
+      "fraction_classified_real": 0.9735772609710693,
+      "mean_real_bce": 0.06527426635653662,
+      "mean_real_probability": 0.9612251251057639,
+      "split": "validation"
+    },
+    {
+      "class_id": 9,
+      "class_name": "Ankle boot",
+      "count": 493,
+      "fraction_classified_real": 0.9979715943336487,
+      "mean_real_bce": 0.007190830998919306,
+      "mean_real_probability": 0.9956085815814155,
+      "split": "validation"
+    }
+  ],
+  "history": [
+    {
+      "batches": 430,
+      "d_fake_loss": 0.4753004507324912,
+      "d_fake_score_after": 0.30649922122088347,
+      "d_fake_score_before": 0.35433166484399276,
+      "d_loss": 0.9806148627801375,
+      "d_real_loss": 0.5053144108642231,
+      "d_real_score": 0.6595904019789263,
+      "epoch": 1,
+      "fixed_initial_fake": 0.11839047074317932,
+      "fixed_train_real": 0.7224730849266052,
+      "fixed_validation_real": 0.7334480285644531,
+      "g_loss": 1.3505870865908536,
+      "samples": 55000,
+      "training_seconds": 45.42617260798579
+    },
+    {
+      "batches": 430,
+      "d_fake_loss": 0.3827274384238503,
+      "d_fake_score_after": 0.25746197037046603,
+      "d_fake_score_before": 0.288229945583777,
+      "d_loss": 0.8044685401916504,
+      "d_real_loss": 0.4217410997737538,
+      "d_real_score": 0.7107980548945341,
+      "epoch": 2,
+      "fixed_initial_fake": 0.9135668873786926,
+      "fixed_train_real": 0.8632104396820068,
+      "fixed_validation_real": 0.8329472541809082,
+      "g_loss": 1.5859173333081331,
+      "samples": 55000,
+      "training_seconds": 51.11913562199334
+    },
+    {
+      "batches": 430,
+      "d_fake_loss": 0.34924369571642444,
+      "d_fake_score_after": 0.21957914267670026,
+      "d_fake_score_before": 0.25389682187817314,
+      "d_loss": 0.7505420651349154,
+      "d_real_loss": 0.40129836997769097,
+      "d_real_score": 0.7462438770554283,
+      "epoch": 3,
+      "fixed_initial_fake": 0.5685188174247742,
+      "fixed_train_real": 0.8543134927749634,
+      "fixed_validation_real": 0.823518693447113,
+      "g_loss": 1.8514638654882258,
+      "samples": 55000,
+      "training_seconds": 50.77617388503859
+    },
+    {
+      "batches": 430,
+      "d_fake_loss": 0.2797002853480252,
+      "d_fake_score_after": 0.18291241471333938,
+      "d_fake_score_before": 0.2119767846215855,
+      "d_loss": 0.6322594556938518,
+      "d_real_loss": 0.3525591696695848,
+      "d_real_score": 0.7870584986253218,
+      "epoch": 4,
+      "fixed_initial_fake": 0.3618133068084717,
+      "fixed_train_real": 0.8818932771682739,
+      "fixed_validation_real": 0.8460497260093689,
+      "g_loss": 2.0898793819947676,
+      "samples": 55000,
+      "training_seconds": 51.27022856997792
+    },
+    {
+      "batches": 430,
+      "d_fake_loss": 0.2714025742790916,
+      "d_fake_score_after": 0.1793437023076144,
+      "d_fake_score_before": 0.20725544332807713,
+      "d_loss": 0.623231155239452,
+      "d_real_loss": 0.35182858063957906,
+      "d_real_score": 0.7941441708391362,
+      "epoch": 5,
+      "fixed_initial_fake": 0.6753088235855103,
+      "fixed_train_real": 0.858876645565033,
+      "fixed_validation_real": 0.8156606554985046,
+      "g_loss": 2.0721093617179176,
+      "samples": 55000,
+      "training_seconds": 51.88883104297565
+    },
+    {
+      "batches": 430,
+      "d_fake_loss": 0.27791060863841666,
+      "d_fake_score_after": 0.20521514148061926,
+      "d_fake_score_before": 0.21594864050475035,
+      "d_loss": 0.6294069334723733,
+      "d_real_loss": 0.351496324300766,
+      "d_real_score": 0.7846748612924056,
+      "epoch": 6,
+      "fixed_initial_fake": 0.8038745522499084,
+      "fixed_train_real": 0.7584603428840637,
+      "fixed_validation_real": 0.7350282669067383,
+      "g_loss": 1.872929870258678,
+      "samples": 55000,
+      "training_seconds": 51.013630496978294
+    },
+    {
+      "batches": 430,
+      "d_fake_loss": 0.294054557873986,
+      "d_fake_score_after": 0.21803811482082713,
+      "d_fake_score_before": 0.22776360884146257,
+      "d_loss": 0.6728760578849099,
+      "d_real_loss": 0.37882150015397503,
+      "d_real_score": 0.77282136295492,
+      "epoch": 7,
+      "fixed_initial_fake": 0.8688222765922546,
+      "fixed_train_real": 0.7467491030693054,
+      "fixed_validation_real": 0.7363653182983398,
+      "g_loss": 1.7745508688146419,
+      "samples": 55000,
+      "training_seconds": 50.69312642200384
+    },
+    {
+      "batches": 430,
+      "d_fake_loss": 0.30329415696317497,
+      "d_fake_score_after": 0.22412264139652252,
+      "d_fake_score_before": 0.23404908514022826,
+      "d_loss": 0.6937733993616971,
+      "d_real_loss": 0.3904792426586151,
+      "d_real_score": 0.7667153867894952,
+      "epoch": 8,
+      "fixed_initial_fake": 0.8864901065826416,
+      "fixed_train_real": 0.715030312538147,
+      "fixed_validation_real": 0.6984854936599731,
+      "g_loss": 1.7357553087061102,
+      "samples": 55000,
+      "training_seconds": 53.53095190500608
+    },
+    {
+      "batches": 430,
+      "d_fake_loss": 0.31059301870085976,
+      "d_fake_score_after": 0.22818614889708433,
+      "d_fake_score_before": 0.23966360577236523,
+      "d_loss": 0.7108006111665206,
+      "d_real_loss": 0.4002075932676142,
+      "d_real_score": 0.7611203093875538,
+      "epoch": 9,
+      "fixed_initial_fake": 0.9560525417327881,
+      "fixed_train_real": 0.7899370789527893,
+      "fixed_validation_real": 0.7498136758804321,
+      "g_loss": 1.7101382433457808,
+      "samples": 55000,
+      "training_seconds": 50.670799434999935
+    },
+    {
+      "batches": 430,
+      "d_fake_loss": 0.3085692630897869,
+      "d_fake_score_after": 0.2255560985543511,
+      "d_fake_score_before": 0.2384114436084574,
+      "d_loss": 0.707271671555259,
+      "d_real_loss": 0.3987024087255651,
+      "d_real_score": 0.762079829675501,
+      "epoch": 10,
+      "fixed_initial_fake": 0.9858845472335815,
+      "fixed_train_real": 0.8283057808876038,
+      "fixed_validation_real": 0.7908859848976135,
+      "g_loss": 1.715803983896429,
+      "samples": 55000,
+      "training_seconds": 53.28812267497415
+    },
+    {
+      "batches": 430,
+      "d_fake_loss": 0.31203409868587145,
+      "d_fake_score_after": 0.22675837164683776,
+      "d_fake_score_before": 0.23922060148499227,
+      "d_loss": 0.7123948206294667,
+      "d_real_loss": 0.4003607211698185,
+      "d_real_score": 0.7615454927097667,
+      "epoch": 11,
+      "fixed_initial_fake": 0.962073564529419,
+      "fixed_train_real": 0.6859341263771057,
+      "fixed_validation_real": 0.6635608673095703,
+      "g_loss": 1.7165365102247758,
+      "samples": 55000,
+      "training_seconds": 53.92736167402472
+    },
+    {
+      "batches": 430,
+      "d_fake_loss": 0.31067787305225025,
+      "d_fake_score_after": 0.22595747140971098,
+      "d_fake_score_before": 0.2385231324520978,
+      "d_loss": 0.712405570827831,
+      "d_real_loss": 0.40172769816138526,
+      "d_real_score": 0.7615508849837563,
+      "epoch": 12,
+      "fixed_initial_fake": 0.9966415166854858,
+      "fixed_train_real": 0.7637363076210022,
+      "fixed_validation_real": 0.7405704259872437,
+      "g_loss": 1.7177707804072988,
+      "samples": 55000,
+      "training_seconds": 53.71642117301235
+    },
+    {
+      "batches": 430,
+      "d_fake_loss": 0.3095518368330869,
+      "d_fake_score_after": 0.22235143608613447,
+      "d_fake_score_before": 0.23714499550082466,
+      "d_loss": 0.7085971737168052,
+      "d_real_loss": 0.3990453354618766,
+      "d_real_score": 0.7637524610692804,
+      "epoch": 13,
+      "fixed_initial_fake": 0.9965418577194214,
+      "fixed_train_real": 0.8268055319786072,
+      "fixed_validation_real": 0.7778308391571045,
+      "g_loss": 1.7422475092627785,
+      "samples": 55000,
+      "training_seconds": 52.87254842603579
+    },
+    {
+      "batches": 430,
+      "d_fake_loss": 0.3026383535688574,
+      "d_fake_score_after": 0.21841447955695065,
+      "d_fake_score_before": 0.2327808389750394,
+      "d_loss": 0.6966565073880282,
+      "d_real_loss": 0.39401815433935683,
+      "d_real_score": 0.7675914040738886,
+      "epoch": 14,
+      "fixed_initial_fake": 0.9983684420585632,
+      "fixed_train_real": 0.8388535380363464,
+      "fixed_validation_real": 0.7690128087997437,
+      "g_loss": 1.7631120969772338,
+      "samples": 55000,
+      "training_seconds": 53.79052076599328
+    },
+    {
+      "batches": 430,
+      "d_fake_loss": 0.30354012625434185,
+      "d_fake_score_after": 0.21765274037122725,
+      "d_fake_score_before": 0.2324865160595287,
+      "d_loss": 0.69687080003565,
+      "d_real_loss": 0.39333067397204313,
+      "d_real_score": 0.7684806432203813,
+      "epoch": 15,
+      "fixed_initial_fake": 0.9988314509391785,
+      "fixed_train_real": 0.6864063739776611,
+      "fixed_validation_real": 0.6043419241905212,
+      "g_loss": 1.7714601188659669,
+      "samples": 55000,
+      "training_seconds": 52.990135318017565
+    },
+    {
+      "batches": 430,
+      "d_fake_loss": 0.29708729048642246,
+      "d_fake_score_after": 0.21289795947291634,
+      "d_fake_score_before": 0.22795939207510516,
+      "d_loss": 0.684249482978474,
+      "d_real_loss": 0.387162194555456,
+      "d_real_score": 0.772415718052604,
+      "epoch": 16,
+      "fixed_initial_fake": 0.9995627999305725,
+      "fixed_train_real": 0.858019232749939,
+      "fixed_validation_real": 0.7803941965103149,
+      "g_loss": 1.7971874236713756,
+      "samples": 55000,
+      "training_seconds": 54.043663910008036
+    },
+    {
+      "batches": 430,
+      "d_fake_loss": 0.29585230801322243,
+      "d_fake_score_after": 0.2106827788916501,
+      "d_fake_score_before": 0.2264164249745282,
+      "d_loss": 0.6811321412519975,
+      "d_real_loss": 0.38527983339483085,
+      "d_real_score": 0.7741685384316878,
+      "epoch": 17,
+      "fixed_initial_fake": 0.9998226761817932,
+      "fixed_train_real": 0.8485547304153442,
+      "fixed_validation_real": 0.7757351398468018,
+      "g_loss": 1.815313699531555,
+      "samples": 55000,
+      "training_seconds": 53.80617151799379
+    },
+    {
+      "batches": 430,
+      "d_fake_loss": 0.29496710359183226,
+      "d_fake_score_after": 0.21043471757498655,
+      "d_fake_score_before": 0.22602264577692205,
+      "d_loss": 0.6807251603213224,
+      "d_real_loss": 0.38575805645855993,
+      "d_real_score": 0.7746491091468117,
+      "epoch": 18,
+      "fixed_initial_fake": 0.9992204904556274,
+      "fixed_train_real": 0.8412017822265625,
+      "fixed_validation_real": 0.7679800987243652,
+      "g_loss": 1.8157086275967684,
+      "samples": 55000,
+      "training_seconds": 52.86548261099961
+    },
+    {
+      "batches": 430,
+      "d_fake_loss": 0.29055469400232486,
+      "d_fake_score_after": 0.20693066044720737,
+      "d_fake_score_before": 0.2232165776231072,
+      "d_loss": 0.6723429786508733,
+      "d_real_loss": 0.3817882833784277,
+      "d_real_score": 0.7772813166878441,
+      "epoch": 19,
+      "fixed_initial_fake": 0.9992613792419434,
+      "fixed_train_real": 0.8426252603530884,
+      "fixed_validation_real": 0.7773013710975647,
+      "g_loss": 1.8360064408909191,
+      "samples": 55000,
+      "training_seconds": 53.99475281900959
+    },
+    {
+      "batches": 430,
+      "d_fake_loss": 0.28754150604551487,
+      "d_fake_score_after": 0.20388086784969678,
+      "d_fake_score_before": 0.22051751383651386,
+      "d_loss": 0.6654654094696045,
+      "d_real_loss": 0.37792390292774547,
+      "d_real_score": 0.7798896221767773,
+      "epoch": 20,
+      "fixed_initial_fake": 0.9993257522583008,
+      "fixed_train_real": 0.8380938768386841,
+      "fixed_validation_real": 0.7848972678184509,
+      "g_loss": 1.8623025173534047,
+      "samples": 55000,
+      "training_seconds": 53.627646506007295
+    }
+  ],
+  "initial_fixed_scores": {
+    "fixed_initial_fake": 0.5038252472877502,
+    "fixed_train_real": 0.5052805542945862,
+    "fixed_validation_real": 0.505186140537262
+  },
+  "invocations": [
+    {
+      "active_seconds": 252.12440800998593,
+      "command": [
+        "/home/rui.gao/anaconda3/bin/python3",
+        "phase01_research_engineering/week08_gans/run_baseline.py",
+        "--dataset",
+        "fashion-mnist",
+        "--architecture",
+        "cnn",
+        "--device",
+        "cpu",
+        "--epochs",
+        "20",
+        "--chunk-epochs",
+        "5",
+        "--batch-size",
+        "128",
+        "--seed",
+        "42",
+        "--noise-dim",
+        "64",
+        "--lr",
+        "0.0002",
+        "--threads",
+        "2",
+        "--num-workers",
+        "0",
+        "--out-dir",
+        "phase01_research_engineering/week08_gans/results/runs/fashion_mnist_cnn_seed42_20epochs_20260917"
+      ],
+      "finished_at": "2026-09-17T11:03:08.071846+00:00",
+      "first_epoch": 1,
+      "planned_last_epoch": 5,
+      "resume": false,
+      "started_at": "2026-09-17T10:58:55.946610+00:00",
+      "status": "paused"
+    },
+    {
+      "active_seconds": 260.9123619319871,
+      "command": [
+        "/home/rui.gao/anaconda3/bin/python3",
+        "phase01_research_engineering/week08_gans/run_baseline.py",
+        "--resume",
+        "--out-dir",
+        "phase01_research_engineering/week08_gans/results/runs/fashion_mnist_cnn_seed42_20epochs_20260917"
+      ],
+      "finished_at": "2026-09-17T11:09:11.019708+00:00",
+      "first_epoch": 6,
+      "planned_last_epoch": 10,
+      "resume": true,
+      "started_at": "2026-09-17T11:04:50.105605+00:00",
+      "status": "paused"
+    },
+    {
+      "active_seconds": 269.0102692770306,
+      "command": [
+        "/home/rui.gao/anaconda3/bin/python3",
+        "phase01_research_engineering/week08_gans/run_baseline.py",
+        "--resume",
+        "--out-dir",
+        "phase01_research_engineering/week08_gans/results/runs/fashion_mnist_cnn_seed42_20epochs_20260917"
+      ],
+      "finished_at": "2026-09-17T11:15:00.509841+00:00",
+      "first_epoch": 11,
+      "planned_last_epoch": 15,
+      "resume": true,
+      "started_at": "2026-09-17T11:10:31.497617+00:00",
+      "status": "paused"
+    },
+    {
+      "active_seconds": 274.56883412902243,
+      "command": [
+        "/home/rui.gao/anaconda3/bin/python3",
+        "phase01_research_engineering/week08_gans/run_baseline.py",
+        "--resume",
+        "--out-dir",
+        "phase01_research_engineering/week08_gans/results/runs/fashion_mnist_cnn_seed42_20epochs_20260917"
+      ],
+      "finished_at": "2026-09-17T11:20:39.330489+00:00",
+      "first_epoch": 16,
+      "planned_last_epoch": 20,
+      "resume": true,
+      "started_at": "2026-09-17T11:16:04.759959+00:00",
+      "status": "completed"
+    }
+  ],
+  "peak_rss_mb": 955.1875,
+  "selected_epoch": 20,
+  "status": "completed",
+  "test_images_used": false,
+  "total_seconds": 1056.615873348026
+}

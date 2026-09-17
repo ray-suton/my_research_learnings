@@ -1,0 +1,14 @@
+MNIST {'train': 55000, 'validation': 5000, 'test': 10000} | architecture=cnn | device=cpu | seed=42
+Generator 482049 parameters; discriminator 355073
+epoch=1 D=0.124429 G=5.972341 seconds=57.00
+epoch=2 D=0.000344 G=8.899202 seconds=55.07
+epoch=3 D=0.000114 G=9.953066 seconds=54.35
+epoch=4 D=0.000056 G=10.700823 seconds=54.47
+epoch=5 D=0.201683 G=9.202752 seconds=53.91
+epoch=6 D=0.948293 G=1.299032 seconds=54.32
+epoch=7 D=0.950891 G=1.354099 seconds=57.12
+epoch=8 D=0.942708 G=1.377938 seconds=55.30
+epoch=9 D=0.896200 G=1.482020 seconds=56.25
+epoch=10 D=0.856956 G=1.587735 seconds=55.38
+epoch=11 D=0.835679 G=1.652680 seconds=57.67
+epoch=12 D=0.816530 G=1.704455 seconds=58.29
