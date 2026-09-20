@@ -17,6 +17,9 @@ Research-process overlay:
 
 ### Week 9 - Tokenization and text data
 
+Active project: [Week 9 workspace](week09_tokenization_text_data/README.md),
+initialized on 2026-09-17. Start with [Session 1](week09_tokenization_text_data/session1.md).
+
 Goal: prepare language-modeling data correctly.
 
 - Monday: Learn BPE, WordPiece, unigram tokenization, special tokens, padding, truncation, packing.
@@ -89,39 +92,45 @@ Deliverable: small T5 fine-tuning experiment.
 
 ### Week 15 - Toy-scale LLM pretraining
 
-Goal: understand what pretraining teaches and what it cannot teach at small scale.
+Goal: understand what pretraining teaches and how a controlled data mixture affects a small model.
 
-- Monday: Study data scale, compute scale, optimizer stability, and evaluation.
-- Tuesday: Clean a larger small corpus.
-- Wednesday: Train mini-GPT longer.
-- Thursday: Run context-length and model-width ablations.
-- Friday: Write toy pretraining limitations.
+- Monday: Study data/compute scale and optimizer stability; declare a baseline and one data-mixture variant with fixed evaluation text.
+- Tuesday: Clean two small training sources, check split leakage, and save source identities and sampling proportions.
+- Wednesday: Train the two mini-GPT runs from identical initial weights with the same tokenizer, architecture, context length, optimizer, schedule, and processed-token budget.
+- Thursday: Compare held-out loss by source and overall; record actual source-token counts, throughput, peak memory, and training time. Retain the context-length and model-width ablations as separately controlled comparisons.
+- Friday: Write the result, failed hypotheses, and small-scale limitations.
 
-Deliverable: toy pretraining report.
+Minimum comparison: change only source-mixture proportions in the primary pair. Freeze learning rate, warmup/decay, clipping, and batch settings before running; log them rather than attributing their effects to data. Match non-padding training tokens and record actual compute instead of claiming identical wall time. Start with a tiny smoke budget and extend sessions if needed; a negative result is valid.
+
+Deliverable: toy pretraining report with a reproducible two-mixture comparison and explicit compute/data limits.
 
 ### Week 16 - Mid-training / continued pretraining
 
-Goal: adapt a base LM to a domain corpus.
+Goal: adapt a base LM while measuring domain gains and retention of general capability.
 
-- Monday: Learn domain-adaptive and task-adaptive pretraining.
-- Tuesday: Choose domain corpus: AI abstracts, class notes, lab text, code docs.
-- Wednesday: Continue pretraining a small pretrained model.
-- Thursday: Compare base vs continued-pretrained model on domain prompts/perplexity.
-- Friday: Write when continued pretraining helps or overfits.
+- Monday: Learn domain-adaptive/task-adaptive pretraining, forgetting, and general-data replay; declare four evaluation arms.
+- Tuesday: Prepare separate domain and general training/held-out text. Freeze the replay ratio, tokenizer, optimizer, context length, and evaluation protocol.
+- Wednesday: From the same base checkpoint, run general-only continuation, domain-only continuation, and domain-plus-general replay; retain the untouched base as the fourth arm.
+- Thursday: Compare domain and general held-out loss/perplexity plus fixed prompts across all four arms; report gains, regressions, runtime, and actual domain/general tokens.
+- Friday: Write the adaptation-versus-retention tradeoff, overfitting limits, and whether replay helped.
 
-Deliverable: domain-adapted small LM.
+Match total non-padding training-token budgets and optimizer settings across the three continuation runs. The mixed arm sees fewer domain tokens at this budget; report that difference explicitly. Use a tiny common model/subset first, keep evaluation text out of all training sources, and do not claim that lower domain loss proves improved general capability.
+
+Deliverable: domain-adaptation report with base/general-only/domain-only/replay results and a retention comparison.
 
 ### Week 17 - Supervised fine-tuning with LoRA
 
-Goal: learn parameter-efficient instruction tuning.
+Goal: learn parameter-efficient instruction tuning and verify the exact text/targets used for learning.
 
-- Monday: Learn LoRA and PEFT.
-- Tuesday: Prepare a small instruction dataset.
-- Wednesday: Run LoRA SFT on a small model.
-- Thursday: Compare base vs SFT outputs on fixed prompts.
-- Friday: Write pretraining vs SFT vs LoRA notes.
+- Monday: Learn LoRA/PEFT, chat templates, role boundaries, and assistant-only loss.
+- Tuesday: Prepare a small instruction dataset with single-turn and multi-turn examples; inspect rendered text, token IDs, truncation/packing, and trainable label positions.
+- Wednesday: Pass small data-contract checks, then run LoRA SFT on a small model with held-out conversations excluded from training.
+- Thursday: Compare base vs SFT on fixed single-turn and multi-turn prompts; inspect formatting failures and capability regressions.
+- Friday: Write pretraining vs SFT vs LoRA notes, including the template and masking decisions.
 
-Deliverable: LoRA adapter and comparison table.
+Required checks: prompt/user and padding targets are excluded from loss under the declared assistant-only policy; real assistant end markers remain valid targets; the model still receives the intended conversational context. Confirm the chosen trainer's label-shift convention, special tokens, and packing boundaries. Record and reject examples whose answer was entirely truncated. These are executable acceptance checks when the lesson is implemented, not passes inferred from configuration names.
+
+Deliverable: LoRA adapter, inspected chat/label examples, passing data-contract checks, and a held-out comparison table.
 
 ### Week 18 - QLoRA and memory-efficient fine-tuning
 
@@ -227,15 +236,15 @@ model weights
 ## Phase Outputs
 
 - Tokenizer, prepared LM dataset, tested Transformer block, and mini-GPT.
-- Toy pretraining and continued-pretraining experiments.
-- SFT, LoRA, QLoRA, DPO, and post-training comparison notes.
+- Controlled pretraining data-mixture and continued-pretraining retention/replay experiments.
+- SFT, LoRA, QLoRA, DPO, and post-training comparison notes, with explicit chat-template and assistant-loss-mask checks.
 - LLM evaluation report, inference benchmark, RAG system, test-time compute comparison, and tool-using agent.
 
 ## Continual Extension Connections
 
 Phase 2 feeds directly into the highest-priority extension tracks:
 
-- Modern post-training and agentic RL: RLHF, RLAIF, RLVR, verifiers, rejection sampling, tool-use rewards.
+- Modern post-training and agentic RL: RLHF, RLAIF, verifiers, rejection sampling, and tool-use rewards. Extension A now requires a response-distillation comparison and one actual small GRPO/RLVR model-training run; see the root roadmap for the shared acceptance contract.
 - Coding agents and computer-use agents: repository agents, SWE-bench-style evals, program repair, browser/UI action loops.
 - Long-context models and memory systems: long-context eval, attention vs retrieval, memory stores, lost-in-the-middle, summarization memory.
 - AI safety, security, and robustness: prompt injection, jailbreaks, hallucination, RAG security, agent sandboxing.

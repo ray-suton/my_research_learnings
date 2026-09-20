@@ -63,6 +63,23 @@ Goal: understand alternatives to dense attention.
 
 Deliverable: Transformer vs Mamba-style comparison.
 
+### Bridge after Week 28 - Spiking neural networks
+
+Placement: complete this bridge after the Mamba/state-space topic and before Week 29. Added on 2026-09-20. Allow four additional learning sessions of roughly 60–90 minutes; preserve existing week numbers and extend the calendar as needed rather than adding these tasks to Week 28's existing workload. This is planned learning, not an implemented project.
+
+Goal: understand networks of stateful spiking neurons and distinguish their dynamics and training from Mamba's selective state-space blocks. RNNs, temporal state, and basic gradient training are useful background.
+
+- Session 1: Simulate one leaky integrate-and-fire neuron. Plot membrane potential and spikes; inspect leak, threshold, reset, and the effect of input timing. Explain the relationship between subthreshold integration and a simple state-space recurrence.
+- Session 2: Study rate and timing/latency encoding, choose one explicit input/output convention, and define a tiny synthetic temporal-classification task. Record time bins, sequence length, readout, train/validation/test splits, and checks for quiet inputs, threshold crossing, and reset behavior.
+- Session 3: Train a small simulated LIF network with surrogate gradients. Document the hard-spike forward computation and approximate backward derivative. Verify finite learning signals and actual parameter updates in a spiking layer; a conventional readout is allowed.
+- Session 4: Compare with a small non-spiking RNN on the same temporal task. Report held-out accuracy, learning curves, firing activity, simulation steps, runtime, memory, failure cases, and what the comparison establishes.
+
+Comparison contract: use the same encoded examples, split identities, and time horizon for both models. Keep parameter counts and training budgets comparable, record remaining differences, and choose settings on validation data. Record the encoding cost and simulated time steps; a sparse spike count alone does not establish lower energy use or faster execution on a GPU. Start with a tiny run and retain negative results.
+
+Deliverable: neuron voltage/spike plots, a verified trainable SNN, a baseline comparison table, and a short SNN-versus-RNN/SSM explanation. Completion requires saved commands, settings, actual test/run evidence, and limitations.
+
+Reading: [integrate-and-fire dynamics](https://neuronaldynamics.epfl.ch/online/Ch1.S3.html) and [surrogate-gradient learning](https://arxiv.org/abs/1901.09948). Neuromorphic hardware, event-based sensing applications, and broader neuron/learning-rule families remain later extension options.
+
 ### Week 29 - Hybrid architectures
 
 Goal: understand why models combine Transformer, SSM, and MoE ideas.
@@ -116,6 +133,7 @@ Deliverable: reproducible LLM mini-pipeline.
 - FlashAttention or attention-memory benchmark.
 - Quantization comparison.
 - Toy MoE, Mamba-style, and hybrid architecture experiments.
+- SNN bridge after Week 28: neuron dynamics plots, surrogate-gradient training, and a temporal-task baseline comparison.
 - Activation-inspection and sparse-autoencoder interpretability notebooks.
 - Reproducible LLM mini-pipeline.
 

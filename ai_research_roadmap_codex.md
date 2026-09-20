@@ -978,39 +978,45 @@ Deliverable: small T5 fine-tuning experiment.
 
 ### Week 15 - Toy-scale LLM pretraining
 
-Goal: understand what pretraining teaches and what it cannot teach at small scale.
+Goal: understand what pretraining teaches and how a controlled data mixture affects a small model.
 
-- Monday: Study data scale, compute scale, optimizer stability, and evaluation.
-- Tuesday: Clean a larger small corpus.
-- Wednesday: Train mini-GPT longer.
-- Thursday: Run context-length and model-width ablations.
-- Friday: Write toy pretraining limitations.
+- Monday: Study data/compute scale and optimizer stability; declare a baseline and one data-mixture variant with fixed evaluation text.
+- Tuesday: Clean two small training sources, check split leakage, and save source identities and sampling proportions.
+- Wednesday: Train the two mini-GPT runs from identical initial weights with the same tokenizer, architecture, context length, optimizer, schedule, and processed-token budget.
+- Thursday: Compare held-out loss by source and overall; record actual source-token counts, throughput, peak memory, and training time. Retain the context-length and model-width ablations as separately controlled comparisons.
+- Friday: Write the result, failed hypotheses, and small-scale limitations.
 
-Deliverable: toy pretraining report.
+Minimum comparison: change only source-mixture proportions in the primary pair. Freeze learning rate, warmup/decay, clipping, and batch settings before running; log them rather than attributing their effects to data. Match non-padding training tokens and record actual compute instead of claiming identical wall time. Start with a tiny smoke budget and extend sessions if needed; a negative result is valid.
+
+Deliverable: toy pretraining report with a reproducible two-mixture comparison and explicit compute/data limits.
 
 ### Week 16 - Mid-training / continued pretraining
 
-Goal: adapt a base LM to a domain corpus.
+Goal: adapt a base LM while measuring domain gains and retention of general capability.
 
-- Monday: Learn domain-adaptive and task-adaptive pretraining.
-- Tuesday: Choose domain corpus: AI abstracts, class notes, lab text, code docs.
-- Wednesday: Continue pretraining a small pretrained model.
-- Thursday: Compare base vs continued-pretrained model on domain prompts/perplexity.
-- Friday: Write when continued pretraining helps or overfits.
+- Monday: Learn domain-adaptive/task-adaptive pretraining, forgetting, and general-data replay; declare four evaluation arms.
+- Tuesday: Prepare separate domain and general training/held-out text. Freeze the replay ratio, tokenizer, optimizer, context length, and evaluation protocol.
+- Wednesday: From the same base checkpoint, run general-only continuation, domain-only continuation, and domain-plus-general replay; retain the untouched base as the fourth arm.
+- Thursday: Compare domain and general held-out loss/perplexity plus fixed prompts across all four arms; report gains, regressions, runtime, and actual domain/general tokens.
+- Friday: Write the adaptation-versus-retention tradeoff, overfitting limits, and whether replay helped.
 
-Deliverable: domain-adapted small LM.
+Match total non-padding training-token budgets and optimizer settings across the three continuation runs. The mixed arm sees fewer domain tokens at this budget; report that difference explicitly. Use a tiny common model/subset first, keep evaluation text out of all training sources, and do not claim that lower domain loss proves improved general capability.
+
+Deliverable: domain-adaptation report with base/general-only/domain-only/replay results and a retention comparison.
 
 ### Week 17 - Supervised fine-tuning with LoRA
 
-Goal: learn parameter-efficient instruction tuning.
+Goal: learn parameter-efficient instruction tuning and verify the exact text/targets used for learning.
 
-- Monday: Learn LoRA and PEFT.
-- Tuesday: Prepare a small instruction dataset.
-- Wednesday: Run LoRA SFT on a small model.
-- Thursday: Compare base vs SFT outputs on fixed prompts.
-- Friday: Write pretraining vs SFT vs LoRA notes.
+- Monday: Learn LoRA/PEFT, chat templates, role boundaries, and assistant-only loss.
+- Tuesday: Prepare a small instruction dataset with single-turn and multi-turn examples; inspect rendered text, token IDs, truncation/packing, and trainable label positions.
+- Wednesday: Pass small data-contract checks, then run LoRA SFT on a small model with held-out conversations excluded from training.
+- Thursday: Compare base vs SFT on fixed single-turn and multi-turn prompts; inspect formatting failures and capability regressions.
+- Friday: Write pretraining vs SFT vs LoRA notes, including the template and masking decisions.
 
-Deliverable: LoRA adapter and comparison table.
+Required checks: prompt/user and padding targets are excluded from loss under the declared assistant-only policy; real assistant end markers remain valid targets; the model still receives the intended conversational context. Confirm the chosen trainer's label-shift convention, special tokens, and packing boundaries. Record and reject examples whose answer was entirely truncated. These are executable acceptance checks when the lesson is implemented, not passes inferred from configuration names.
+
+Deliverable: LoRA adapter, inspected chat/label examples, passing data-contract checks, and a held-out comparison table.
 
 ### Week 18 - QLoRA and memory-efficient fine-tuning
 
@@ -1164,6 +1170,23 @@ Goal: understand alternatives to dense attention.
 - Friday: Write why alternatives to attention exist.
 
 Deliverable: Transformer vs Mamba-style comparison.
+
+### Bridge after Week 28 - Spiking neural networks
+
+Placement: complete this bridge after the Mamba/state-space topic and before Week 29. Added on 2026-09-20. Allow four additional learning sessions of roughly 60–90 minutes; preserve existing week numbers and extend the calendar as needed rather than adding these tasks to Week 28's existing workload. This is planned learning, not an implemented project.
+
+Goal: understand networks of stateful spiking neurons and distinguish their dynamics and training from Mamba's selective state-space blocks. RNNs, temporal state, and basic gradient training are useful background.
+
+- Session 1: Simulate one leaky integrate-and-fire neuron. Plot membrane potential and spikes; inspect leak, threshold, reset, and the effect of input timing. Explain the relationship between subthreshold integration and a simple state-space recurrence.
+- Session 2: Study rate and timing/latency encoding, choose one explicit input/output convention, and define a tiny synthetic temporal-classification task. Record time bins, sequence length, readout, train/validation/test splits, and checks for quiet inputs, threshold crossing, and reset behavior.
+- Session 3: Train a small simulated LIF network with surrogate gradients. Document the hard-spike forward computation and approximate backward derivative. Verify finite learning signals and actual parameter updates in a spiking layer; a conventional readout is allowed.
+- Session 4: Compare with a small non-spiking RNN on the same temporal task. Report held-out accuracy, learning curves, firing activity, simulation steps, runtime, memory, failure cases, and what the comparison establishes.
+
+Comparison contract: use the same encoded examples, split identities, and time horizon for both models. Keep parameter counts and training budgets comparable, record remaining differences, and choose settings on validation data. Record the encoding cost and simulated time steps; a sparse spike count alone does not establish lower energy use or faster execution on a GPU. Start with a tiny run and retain negative results.
+
+Deliverable: neuron voltage/spike plots, a verified trainable SNN, a baseline comparison table, and a short SNN-versus-RNN/SSM explanation. Completion requires saved commands, settings, actual test/run evidence, and limitations.
+
+Reading: [integrate-and-fire dynamics](https://neuronaldynamics.epfl.ch/online/Ch1.S3.html) and [surrogate-gradient learning](https://arxiv.org/abs/1901.09948). Neuromorphic hardware, event-based sensing applications, and broader neuron/learning-rule families remain later extension options.
 
 ### Week 29 - Hybrid architectures
 
@@ -1487,7 +1510,7 @@ The order below is intentionally front-loaded toward the most current and resear
 Suggested Year 2 timeline:
 
 ```text
-Weeks 53-60: Modern post-training, RLHF/RLAIF/RLVR, and agentic RL
+Weeks 53-60: Modern post-training, practical distillation/RLVR, and agentic RL
 Weeks 61-68: Coding agents, computer-use agents, and AI for software engineering
 Weeks 69-74: Long-context models and memory systems
 Weeks 75-80: AI safety, security, and robust evals
@@ -1514,7 +1537,8 @@ Topics:
 - Rejection sampling.
 - Preference data quality.
 - PPO conceptually.
-- GRPO-style reasoning optimization conceptually.
+- GRPO-style reasoning optimization, including one small model-weight training experiment with verifiable rewards.
+- Response distillation from a fixed teacher-generated dataset.
 - Tool-use rewards.
 - Agent environments.
 - Reward hacking.
@@ -1522,15 +1546,25 @@ Topics:
 Projects:
 
 - Compare SFT, DPO, and rejection sampling on a small instruction task.
-- Build a tiny verifier for math, code, or structured outputs.
+- Build and test a tiny verifier for math, code, or structured outputs.
+- Complete the required response-distillation and GRPO/RLVR labs below.
 - Create a toy tool-use environment with explicit rewards.
 - Compare prompt-only agents vs reward-shaped agent loops.
 - Write what is being optimized: model weights, prompts, policies, tool rules, search budget, memory, or control flow.
 
+Required practical labs, accepted on 2026-09-20:
+
+1. **Response distillation:** freeze a small teacher-generated dataset for a training-only prompt set, using a local teacher or an existing dataset with recorded provenance. Compare a student trained on the original SFT answers with a student trained on teacher answers for the same prompt pool. Start both from the same student checkpoint and match tokenizer, update scope, optimizer, and training-token budget; report actual example counts and teacher-generation cost separately. Filter teacher outputs using training-only criteria, preserve rejected-output counts, and restrict both student arms to the same retained prompt IDs paired with their original or teacher answers. Evaluate with independent held-out references or a verifier. Save teacher/data identities, commands, student checkpoints, and a failure-case comparison. This is a response-distillation lab; logit and on-policy distillation remain additional topics.
+2. **GRPO with verifiable rewards:** select one tiny task with an independently checked reward function and held-out task instances. Start from a recorded SFT baseline and run a bounded GRPO experiment that actually updates LM weights or adapters. Preflight model memory, rollout length, and the reward distribution; require within-prompt correctness-reward variation across sampled completions in at least some groups. Uniform rewards, even when nonzero, or format-only rewards do not establish a usable relative correctness signal. Retain the SFT control and compare pre/post held-out correctness at fixed evaluation sampling settings and answer-token limits. Record training reward, evaluation correctness, output length, KL behavior when applicable, rollout/update token counts, runtime, peak memory, reward-hacking cases, and the final checkpoint. A verifier-only script or prompt change does not satisfy the training deliverable.
+
+Keep both labs within the one-GPU learning constraint by reducing model/task size and run budgets first. Exact model/package choices are resolved at lesson time. Record unsuccessful runs honestly; improvement is not required for completion, but an actual verified update, retained artifacts, and evaluation are. If a runtime prerequisite blocks execution, leave that lab pending rather than relabeling conceptual work as implementation. These labs occupy Extension A's existing four-to-eight-week window; they are not extra tasks inside Week 19.
+
 Deliverables:
 
 - Post-training comparison report.
-- One runnable verifier or toy agentic-RL environment.
+- Response-distillation dataset/provenance and matched student comparison.
+- Tested verifier, an actual GRPO/RLVR training run, and pre/post held-out evaluation.
+- One toy agentic-RL environment with an explicit account of what is optimized.
 - Clear notes on which parts are conceptual only versus actually implemented.
 
 ## Extension Track B - Coding Agents and Computer-Use Agents
@@ -2002,11 +2036,11 @@ By the end of the Year 1 core, the student should have:
 
 1. A reproducible PyTorch/HPC experiment template.
 2. MLP, CNN, ResNet, RNN/LSTM, autoencoder, VAE, and GAN projects.
-3. A mini-GPT trained from scratch.
+3. A mini-GPT trained from scratch, including a controlled pretraining data-mixture comparison.
 4. A masked LM or encoder-only Transformer.
 5. A T5 or encoder-decoder fine-tuning project.
-6. A continued-pretraining experiment.
-7. LoRA, QLoRA, SFT, and DPO experiments.
+6. A continued-pretraining experiment comparing domain gains and general-capability retention with replay.
+7. LoRA, QLoRA, SFT, and DPO experiments, with explicit chat-template and assistant-loss-mask checks.
 8. A post-training comparison note covering SFT, preference tuning, RLHF/PPO conceptually, and DPO practically.
 9. An LLM evaluation report.
 10. An inference benchmark.
@@ -2014,7 +2048,7 @@ By the end of the Year 1 core, the student should have:
 12. Test-time compute comparisons.
 13. A small tool-using agent with memory, tool logging, and failure analysis.
 14. FlashAttention/memory benchmark.
-15. Toy MoE and Mamba-style comparison.
+15. Toy MoE and Mamba-style comparison, plus the SNN bridge's neuron plots and temporal-task baseline comparison.
 16. Interpretability notebook.
 17. CNN vs ViT comparison.
 18. CLIP retrieval demo.
@@ -2033,7 +2067,7 @@ By the end of the Year 1 core, the student should have:
 
 After the Year 1 core, keep adding portfolio artifacts:
 
-1. Modern post-training or RLVR/verifier toy project.
+1. Modern post-training portfolio: a response-distillation comparison and a verified small GRPO/RLVR model-training run.
 2. Coding-agent or computer-use-agent benchmark.
 3. Long-context and memory comparison report.
 4. Safety/security eval suite for RAG or agents.
