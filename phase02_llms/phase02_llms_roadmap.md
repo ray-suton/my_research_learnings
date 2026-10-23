@@ -18,21 +18,68 @@ Research-process overlay:
 ### Week 9 - Tokenization and text data
 
 Active project: [Week 9 workspace](week09_tokenization_text_data/README.md),
-initialized on 2026-09-17. Start with [Session 1](week09_tokenization_text_data/session1.md).
+initialized on 2026-09-17. [Session 1](week09_tokenization_text_data/session1.md)
+closed with guided corrections on 2026-09-21.
+[Session 2](week09_tokenization_text_data/session2.md) closed on 2026-09-24 on a
+working README-trained byte-level BPE prototype. Continue with
+[Session 3](week09_tokenization_text_data/session3.md), executed on 2026-09-24:
+WikiText-2 was fetched at a pinned revision and verified, the custom tokenizer
+was refitted on the training subset only, and both tokenizers were compared on
+identical validation text. The custom tokenizer needed about 55% more tokens
+than the frozen GPT-2 reference.
+
+**Deliverable redrawn 2026-09-28 and completed 2026-10-05.** [Session 5](week09_tokenization_text_data/session5.md) and the
+[Week 9 lab note](week09_tokenization_text_data/LAB_NOTE.md) record the results,
+limitations, reproduction steps, and handoff. The deliverable is now *a
+training-only tokenizer and the per-split token streams it produces*: the
+original "tokenizer and prepared LM dataset" line claimed the LM example builder,
+which never fitted a Week 9 session. The tokenizer is complete and measured; the
+stream half (`build_split_stream`) was implemented on 2026-10-05 with **9/9
+fixture checks green**; the prepared LM dataset (`T + 1` windows, one-shifted
+targets, both masks) is [Session 4](week09_tokenization_text_data/session4.md)
+and closed under Week 10. See Week 10 below.
 
 Goal: prepare language-modeling data correctly.
 
 - Monday: Learn BPE, WordPiece, unigram tokenization, special tokens, padding, truncation, packing.
 - Tuesday: Train a tiny tokenizer on a small corpus.
 - Wednesday: Compare the custom tokenizer with a pretrained tokenizer.
-- Thursday: Build tokenized chunks, attention masks, and train/val split.
+- Thursday: Build the per-split token streams (one EOS per nonempty record) and the train/validation/test split boundary.
 - Friday: Write how tokenization affects context length and model behavior.
 
-Deliverable: tokenizer and prepared LM dataset.
+Deliverable: a training-only tokenizer and the per-split token streams it produces.
 
 ### Week 10 - Transformer from scratch I: attention block
 
 Goal: implement the core Transformer block.
+
+Active project: [Week 10 workspace](week10_attention_block/README.md),
+initialized on 2026-09-28 as a documentation scaffold - five-session plan, frozen
+tensor/mask contract, and a Session 1 starter. Session 1 closed the same day as a
+guided conceptual checkpoint, with the discussion record in
+[session1.md](week10_attention_block/session1.md#discussion-record). Session 2
+closed on 2026-09-29: [attention.py](week10_attention_block/attention.py) now
+implements `stable_softmax`, both additive masks, scaled dot-product attention,
+and the smoke run, and **15/15 fixture checks pass**. Multi-head attention
+(Session 3) closed on 2026-09-30: `MultiHeadAttention` is implemented in
+[multihead.py](week10_attention_block/multihead.py) and **9/9 fixture checks
+pass**, including equivalence against an independently written per-head
+reference. Session 4 - residuals, layer norm, MLP, and the assembled block -
+closed on 2026-10-01 with **11/11 fixture checks passing** and a recorded smoke
+run. **Session 5 closed the week on 2026-10-05:** it re-ran all four suites
+(**15/15, 9/9, 11/11, 9/9**), closed the prepared LM dataset, and wrote
+[LAB_NOTE.md](week10_attention_block/LAB_NOTE.md) and
+[session5.md](week10_attention_block/session5.md). Nothing was trained, so no
+quality claim is made.
+
+Redrawn 2026-09-28: this week **owns the prepared LM dataset** - the LM example
+half of [Session 4](week09_tokenization_text_data/session4.md), `T + 1` windows,
+one-shifted targets, `attention_mask`, and `loss_mask` - beside the attention
+block. Week 9's own remaining item, the per-split token stream
+(`build_split_stream`), closed first, because the windows are built from that
+stream, and this week's example half closed with it on 2026-10-05. Week 11
+training is therefore unblocked. See
+[lm_data.py](week09_tokenization_text_data/lm_data.py) for the implementation.
 
 - Monday: Read self-attention, multi-head attention, positional encodings, residuals, FFN.
 - Tuesday: Implement scaled dot-product attention and causal masking.
@@ -40,11 +87,19 @@ Goal: implement the core Transformer block.
 - Thursday: Add residual connections, layer norm, and MLP block.
 - Friday: Write a line-by-line explanation of the block.
 
-Deliverable: tested Transformer block.
+Deliverable: tested Transformer block and the prepared LM dataset.
 
 ### Week 11 - Transformer from scratch II: mini-GPT
 
 Goal: train a tiny decoder-only language model.
+
+Active project: [Week 11 workspace](week11_mini_gpt/README.md), initialized on
+2026-10-05 as a documentation scaffold - five-session plan, a decision table to
+freeze in [Session 1](week11_mini_gpt/session1.md), and a proposed
+model/loss/optimizer contract in the
+[experiment plan](week11_mini_gpt/EXPERIMENT_PLAN.md). Nothing is implemented or
+trained yet; every number there is a proposed default. Inputs are the Week 9
+tokenizer and per-split streams and the Week 10 block and prepared LM dataset.
 
 - Monday: Study embeddings, positional embeddings, decoder blocks, LM head, next-token loss.
 - Tuesday: Implement mini-GPT using the Transformer block.

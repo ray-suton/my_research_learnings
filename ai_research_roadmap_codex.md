@@ -911,10 +911,10 @@ Goal: prepare language-modeling data correctly.
 - Monday: Learn BPE, WordPiece, unigram tokenization, special tokens, padding, truncation, packing.
 - Tuesday: Train a tiny tokenizer on a small corpus.
 - Wednesday: Compare the custom tokenizer with a pretrained tokenizer.
-- Thursday: Build tokenized chunks, attention masks, and train/val split.
+- Thursday: Build the per-split token streams (one EOS per nonempty record) and the train/validation/test split boundary.
 - Friday: Write how tokenization affects context length and model behavior.
 
-Deliverable: tokenizer and prepared LM dataset.
+Deliverable: a training-only tokenizer and the per-split token streams it produces (redrawn 2026-09-28; the prepared LM dataset moved to Week 10).
 
 ### Week 10 - Transformer from scratch I: attention block
 
@@ -926,7 +926,7 @@ Goal: implement the core Transformer block.
 - Thursday: Add residual connections, layer norm, and MLP block.
 - Friday: Write a line-by-line explanation of the block.
 
-Deliverable: tested Transformer block.
+Deliverable: tested Transformer block and the prepared LM dataset (T + 1 windows, one-shifted targets, attention and loss masks; moved from Week 9 on 2026-09-28).
 
 ### Week 11 - Transformer from scratch II: mini-GPT
 
